@@ -5,6 +5,7 @@ public class People {
 //定義常數表示過重
 	static double overWeightBMI = 24.0;
 	public static double BMI(double h ,double w) {
+		//double BMI = weight/(height*height);//static不能呼叫非靜態,只有非靜態能呼叫static
 		return w / (h * h);
 		
 	}
@@ -12,7 +13,8 @@ public class People {
 	double height;
 	double weight;
 	public double getBMI() {
-		double BMI = weight / (height * height);
+//		double BMI = weight / (height * height);
+		double BMI = People.BMI(height, weight);//非靜態能呼叫static
 		return BMI;
 	}
 

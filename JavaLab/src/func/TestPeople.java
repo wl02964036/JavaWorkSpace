@@ -14,6 +14,8 @@ public class TestPeople {
 
 		
 		System.out.println(Math.pow(2, 5));
+		
+		System.out.println(String.join("-" , "a" , "Hello" , "World"));
 	}
 
 }
