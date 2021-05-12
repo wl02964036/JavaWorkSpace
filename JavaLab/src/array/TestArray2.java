@@ -18,6 +18,7 @@ public class TestArray2 {
 		}
 		System.out.println("=====================");
 		for( int[] a :  x  ) {
+			
 			for( int b :  a  ) {
 				System.out.println(b);
 			}

@@ -1,6 +1,10 @@
-import sun.security.util.Length;
+
 
 public class nothing {
-	
+	public static void main(String[] arges) {
+		
+		
+
+	}
 
 }
