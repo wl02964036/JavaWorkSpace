@@ -18,8 +18,8 @@ public class NoteBook extends Product implements Warrantable{
 	public int warranty;
 	
 	public NoteBook(String name, int price, int warranty) {
-		super();//如果沒有主動呼叫super(name,price);，compiler會自動加一個在這裡
-//		super(name,price);
+//		super();//如果沒有主動呼叫super(name,price);，compiler會自動加一個在這裡
+		super(name,price);
 //		setName(name);
 //		setPrice(price);
 //		this.name = name;//被super(name,price);取代

@@ -9,8 +9,8 @@ public class Food extends Product implements Expirable{
 
 	@Override
 	public Date 最後期限() {
-		// TODO Auto-generated method stub
-		return null;
+		
+		return expireDate;
 	}
 	
     private Date expireDate;
