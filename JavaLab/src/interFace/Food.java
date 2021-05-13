@@ -1,4 +1,5 @@
 package interFace;
+import java.io.Serializable;
 //java.sql.Date:JDBC//class名稱不同，但package名稱相同，所以不要選錯
 import java.util.Date;
 
