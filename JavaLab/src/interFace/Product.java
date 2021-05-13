@@ -1,4 +1,8 @@
-package extend;
+package interFace;
+
+import java.util.Calendar;
+import java.util.Date;
+import java.util.GregorianCalendar;
 
 //public class Product {
   public abstract class Product {
@@ -48,6 +52,13 @@ package extend;
 		return String.format("名稱:%s,價錢:%d", name,price);
 	}
 	
+	public static Date getDate(int year,int month, int dayOfMonth) {
+		
+		GregorianCalendar calendar = new GregorianCalendar(year, month-1, dayOfMonth);
+		Date date = calendar.getTime();
+		return date;
+		
+	}
 	
 
 }

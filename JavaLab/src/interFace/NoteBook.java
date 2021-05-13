@@ -1,11 +1,19 @@
-package extend;
+package interFace;
+
+
 //ctrl+1:fix
 //public abstract class NoteBook extends Product {
-public class NoteBook extends Product {
+public class NoteBook extends Product implements Warrantable{
+	//NoteBook具備三種型態:Notebook,Product,Warrantable
+	
 //	@Override
 //	public void calc() {
 //		
 //	}
+	
+	public int 保固天數() {
+		return warranty;
+	}
 	
 	public int warranty;
 	
@@ -14,8 +22,8 @@ public class NoteBook extends Product {
 //		super(name,price);
 //		setName(name);
 //		setPrice(price);
-		this.name = name;//被super(name,price);取代
-		this.price = price;//被super(name,price);取代
+//		this.name = name;//被super(name,price);取代
+//		this.price = price;//被super(name,price);取代
 		
 		this.warranty = warranty;
 	}

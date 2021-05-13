@@ -1,4 +1,4 @@
-package extend;
+package interFace;
 
 import java.util.Date;
 import java.util.Calendar;
@@ -29,6 +29,7 @@ public class TestProduct {
 		if(item instanceof NoteBook) {
 			NoteBook nb1 = (NoteBook)item;
 			System.out.println("保固:"+nb1.getWarranty());
+			
 		}
 		
 		NoteBook nb1 = (NoteBook)item;//Product -> NoteBook(?),父類別轉成子類別
@@ -46,11 +47,13 @@ public class TestProduct {
 //		GregorianCalendar calendar = new GregorianCalender(2021,5,13);		
 
 		GregorianCalendar calendar = new GregorianCalendar(2021, Calendar.MAY, 13);
-
 		Date date = calendar.getTime();
-
 		Food food = new Food("肉鬆", 200, date);
 		System.out.println(food.desc());
+		
+		GregorianCalendar calendar1 = new GregorianCalendar(2021, Calendar.MAY, 13);
+		Date date1 = calendar.getTime();
+		SimCard sim = new SimCard("日本漫遊", 600, date);
 
 //		buy(nb);
 //		buy(food);
