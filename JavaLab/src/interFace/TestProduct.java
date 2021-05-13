@@ -46,8 +46,9 @@ public class TestProduct {
 		// 先取得日曆Calendar再取得日期Date,m,月份0起算,其他是1起算
 //		GregorianCalendar calendar = new GregorianCalender(2021,5,13);		
 
-		GregorianCalendar calendar = new GregorianCalendar(2021, Calendar.MAY, 13);
-		Date date = calendar.getTime();
+//		GregorianCalendar calendar = new GregorianCalendar(2021, Calendar.MAY, 13);
+//		Date date = calendar.getTime();
+		Date date = Product.getDate(2021, 5, 13);
 		Food food = new Food("肉鬆", 200, date);
 		System.out.println(food.desc());
 		
