@@ -31,7 +31,7 @@ public class TestProduct {
 			System.out.println("保固:"+nb1.getWarranty());
 		}
 		
-		NoteBook nb1 = (NoteBook)item;//Product -> NoteBook(?),父類別轉成子類別
+//		NoteBook nb1 = (NoteBook)item;//Product -> NoteBook(?),父類別轉成子類別
 //		Food f1 = (Food)item;	//Product -> NoteBook(?),父類別轉成子類別
 		
 		//nb.getwarranty();

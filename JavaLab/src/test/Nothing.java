@@ -1,35 +1,29 @@
 package test;
 
+import com.sun.org.apache.bcel.internal.classfile.InnerClass;
+
 public class Nothing {
-
-	String name;
-	int price;
-	public void setPrice(String name,int price) {
-		this.name = name;
-		this.price = price;
+	
+	private double weight;
+	private double height;
+	
+	public Nothing(double weight,double height) {
+		this.weight = weight;
+		this.height = height;
 	}
 	
-	public Nothing() {
+	public void printBMI() {
+		InnerNothing inner = new InnerNothing();
+		double bmi = inner.calcBMI();
+		System.out.println(bmi);
 	}
 	
-	public String getName() {
-		return name;
-	}
-	
-	public int getPrice() {
-		return price;
-	}
-
-	public void setName(String name) {
-		this.name = name;
+	private class InnerNothing{
+		public double calcBMI() {
+			return weight/(height*height);
+		}
 	}
 
-	public void setPrice(int price) {
-		this.price = price;
-	}
 	
-	public String desc() {
-		return String.format("名稱:%s,價錢:%d", name,price);
-	}
 	
 }
