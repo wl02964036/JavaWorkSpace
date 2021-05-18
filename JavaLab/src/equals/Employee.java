@@ -56,6 +56,7 @@ public class Employee {
 
 		return false;
 	}
+	
 	@Override
 	public int hashCode() {
 		//回傳代表物件的數字，通常會跟你equals中比較的屬性有關
