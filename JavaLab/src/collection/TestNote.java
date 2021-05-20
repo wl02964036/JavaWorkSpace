@@ -12,6 +12,8 @@ public class TestNote {
 		
 		Note<Double> doubleNote = new Note<>(3.0);
 		System.out.println(doubleNote.getContent());
+		
+//		Note<String> stringNote = new Note<String>("aaa");//Note已經限定用Number,所以stringNote不能用String
 
 	}
 
