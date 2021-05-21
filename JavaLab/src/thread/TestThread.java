@@ -32,7 +32,8 @@ public class TestThread {
 		Thread t2 = new Thread(runnable);
 */	
 		
-		
+//		System.exit(0);
+//		Runtime.getRuntime().exit(0);	
 		Thread t2 = new Thread(new Runnable() {
 
 			@Override
@@ -53,7 +54,16 @@ public class TestThread {
 		
 		
 		t2.setName("Runable倒數");
+		t2.setPriority(10);
+//		t2.setDaemon(true);//設成背景執行緒，java不會等他執行完
 		t2.start();
+		try {
+			t2.join();//從非同步變成同步
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+		System.out.println("t2 is alive = "+t2.isAlive());
+		System.out.println(Thread.currentThread());//main Thread
 		System.out.println("Main方法結束");
 	}
 
