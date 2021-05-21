@@ -11,8 +11,8 @@ public class TestFile {
 
 	public static void main(String[] args) {
 
+/*
 		Set<File> fileSet = new TreeSet<>(new Comparator<File>() {
-
 			@Override
 			public int compare(File o1, File o2) {
 				if (o1.length() < o2.length()) {
@@ -23,6 +23,17 @@ public class TestFile {
 				}
 			}
 		});// 1.
+		
+*/		
+		
+		Set<File> fileSet = new TreeSet<>((o1, o2) -> {
+			if ( o1.length() < o2.length() ) {
+				return -1;//表示o1要放前面,由小到大排
+			}else{
+				return 1;
+			}
+		});
+		
 		File dir = new File("C:\\java");
 		File[] list = dir.listFiles();
 		int counter = 0;

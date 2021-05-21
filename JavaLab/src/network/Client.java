@@ -1,4 +1,3 @@
-
 package network;
 
 import java.io.BufferedReader;
@@ -7,19 +6,15 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.io.OutputStreamWriter;
-import java.net.InetSocketAddress;
-import java.net.ServerSocket;
 import java.net.Socket;
+import java.net.UnknownHostException;
 import java.util.Scanner;
 
-
-public class Server {
+public class Client {
 
 	public static void main(String[] args) {
-		// try with resouce
-		System.out.println("Server啟動中,等候連線");
-		try (ServerSocket ssc = new ServerSocket(8080);
-				Socket socket = ssc.accept(); // 等候別人連線,沒有人連進來,程式會一直停在這一行
+
+		try (Socket socket = new Socket("127.0.0.1", 8080);
 				// 從對方主機讀資料
 				InputStream inputStream = socket.getInputStream();
 				InputStreamReader isr = new InputStreamReader(inputStream, "UTF8");
@@ -29,37 +24,45 @@ public class Server {
 				OutputStreamWriter osw = new OutputStreamWriter(outputStream, "UTF8");
 				Scanner scanner = new Scanner(System.in);) {
 
-			InetSocketAddress socketAddress = (InetSocketAddress) socket.getRemoteSocketAddress();
-			System.out.println("收到來自:" + socketAddress.getHostName());
-
 			Thread t1 = new Thread(new Runnable() {
 
 				@Override
 				public void run() {
-					String line;
 					try {
-						while ((line = br.readLine()) != null) {
-							System.out.println("接收到:" + line);
+
+						while (true) {
+
+							String response = br.readLine();
+							if (response == null) { // 表示連線已中斷
+								break;
+							}
+							System.out.println("接收到來自Server的訊息:" + response);
 						}
 					} catch (IOException e) {
 						e.printStackTrace();
 					}
-
 				}
 			});
 			t1.start();
 
-			while (true) {// main thread回應訊息
-				System.out.println("請輸入回應訊息");
-				// 加上換行符號,因為Client也是利用換行符號readLine()做判斷
-				String message = scanner.nextLine() + System.lineSeparator();
-				osw.write(message);
-				osw.flush();// OutputStreamWriter自帶Buffer,要馬上送出去,要呼叫flush()
-
+			System.out.println("請輸入要傳送的文字，或者b中斷");
+			String line = scanner.nextLine();
+			while (line != null) {
+				// 加上換行符號，因為Server是用readLine，沒有換行符號不會讀取資料
+				osw.write(line + System.lineSeparator());
+				osw.flush();
+				System.out.println("請輸入要傳送的文字，或者b中斷");
+				line = scanner.nextLine();
+				if (line.equals("b")) {
+					break;
+				}
 			}
 
+		} catch (UnknownHostException e) {
+			e.printStackTrace();
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
 	}
+
 }
