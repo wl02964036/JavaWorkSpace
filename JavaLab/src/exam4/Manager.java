@@ -1,4 +1,4 @@
-package exam;
+package exam4;
 
 
 public class Manager extends Employee{
