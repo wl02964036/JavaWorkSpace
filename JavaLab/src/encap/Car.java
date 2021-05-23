@@ -1,6 +1,5 @@
 package encap;
 
-import org.omg.CORBA.PUBLIC_MEMBER;
 
 public class Car {
 	
