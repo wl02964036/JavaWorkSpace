@@ -13,7 +13,7 @@ public class TestHashSet {
 //		Set set = new HashSet();
 		set.add("Hello");
 		boolean success = set.add("Hello");//alt+shift+l
-		System.out.println("家第二次有沒有成功:"+success);
+		System.out.println("加第二次有沒有成功:"+success);
 		System.out.println("size:"+set.size());
 //		String contains = "World";
 //		set.add(contains);
