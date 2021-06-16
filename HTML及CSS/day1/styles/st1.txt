@@ -1,0 +1,26 @@
+ /* .st1 {
+    color: green;
+     font-size: 3em;
+} */
+
+h2.st1 {
+     color: green;
+     font-size: 3em;
+ }
+
+ .st2 {
+     color: purple;
+     text-decoration: underline;
+ }
+.col1{
+    color:red;
+ }
+.col2{
+     color:gray;
+}
+ .under{
+     text-decoration:underline;
+ }
+.sty{
+    font-style:italic;
+ }

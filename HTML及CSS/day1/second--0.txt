@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS的使用--直接加入</title>
+</head>
+<body>
+    <h1 stytle="font-family:標楷體;">我是標楷體</h1>
+    <span>apple</span>
+    <span style="color:red;font-size:22px;">apple</span>
+    <span style="color:#005757;font-size:3em;">apple</span>
+    <span style="color:rgb(128,0,128);font-size:80%;">apple</span> -->
+    <!-- 80%是指原來大小的80%
+</body>
+</html>

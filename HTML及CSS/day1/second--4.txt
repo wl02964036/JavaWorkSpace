@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS的使用--外掛樣式(ID)</title>
+    <style>
+
+    </style>
+    <link rel="stylesheet" href="styles/st1.css">
+</head>
+
+<body>
+    <h1 class="st1">apple</h1>
+    <h1 class="st2">orange</h1>
+    <h2 class="st1">banana</h2>
+    <h3 class="col2 under">panda</h3>
+    <h3 class="col1 sty col2">grape</h3>
+</body>
+
+</html>
