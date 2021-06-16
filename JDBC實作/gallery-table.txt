@@ -1,0 +1,5 @@
+create table Gallery(
+  id int primary key identity(1,1) not null,
+  imageName varchar(50),
+  imageFile varbinary(max)
+)

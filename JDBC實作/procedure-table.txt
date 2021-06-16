@@ -1,0 +1,3 @@
+Create Procedure productProc(@proId int, @proName varchar(50) OUT)
+as
+select @proName = productname from product where productid = @proId
