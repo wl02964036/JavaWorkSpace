@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS的使用--外掛樣式(ID)</title>
+    <!-- 外掛樣式建議寫在style之前，這樣在style插入新的屬性時才不會被外掛樣式覆蓋到 -->
+    <link rel="stylesheet" href="styles/st1.css">
+    <style>
+        #theH4_col2{
+            color:red;
+        }
+        .theH4{
+            color:green;
+            font-size:2em;
+        }
+        .theH4_col{
+            color:purple;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 標籤屬性執行優先度: style > id > class -->
+    <h1 class="st1">apple</h1>
+    <h1 class="st2">orange</h1>
+    <h2 class="st1">banana</h2>
+    <h3 class="col2 under">panda</h3>
+    <h3 class="col1 sty col2">grape</h3>
+    <h4 style="color:blue;" id="theH4_col2" class="theH4 theH4_col">lemon</h4>
+</body>
+
+</html>
