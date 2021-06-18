@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS的使用--直接加入</title>
+    <link rel="stylesheet" href="styles/link.css">
+    <!-- <link rel="stylesheet" href="styles/st1.css"> -->
+    <!-- <link rel="stylesheet" href="styles/font.css"> -->
+    <!-- <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@1,100&display=swap" rel="stylesheet"> -->
+
+    <style>
+        /* @import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@1,100&display=swap');
+        @font-face {
+            src: url(fonts/JustOldFashion.ttf);
+            font-family: font1;
+        }
+        .font1{
+            font-family: font1;
+        }
+        @font-face {
+            src: url(fonts/SCRIPTIN.ttf);
+            font-family: font2;
+        }
+        .font2{
+            font-family: font2;
+        }
+         */
+
+        /* 如果找不到'Raleway'，則會使用cursive */
+        /* p{
+            font-family: 'Raleway',cursive;
+            font-size: 2em;
+            color: red;
+        } */
+
+        /* .st1 {
+            color: green;
+            font-size: 3em;
+        } */
+
+        /* h2.st1 {
+            color: green;
+            font-size: 3em;
+        }
+
+        .st2 {
+            color: purple;
+            text-decoration: underline;
+        }
+        .col1{
+            color:red;
+        }
+        .col2{
+            color:gray;
+        }
+        .under{
+            text-decoration:underline;
+        }
+        .sty{
+            font-style:italic;
+        } */
+    </style>
+</head>
+
+<body>
+    <h1 class="st1 font1">apple</h1>
+    <h1 class="st2 font2">orange</h1>
+    <h2 class="st1 font1">banana</h2>
+    <h3 class="col2 under font2">panda</h3>
+    <h3 class="col1 sty col2">grape</h3>
+    <p>Almost before we knew it, we had left the ground.</p>
+    <!-- <h3 class="col2 sty col1">grape</h3> -->
+    <!-- 字體的變換主要看style的先後順序(由上而下) -->
+</body>
+
+</html>

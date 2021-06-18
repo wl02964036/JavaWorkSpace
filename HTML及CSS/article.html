@@ -5,51 +5,71 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Homework1</title>
+    <title>文繞圖</title>
     <style>
-        *{margin:0; padding:0;}
-        .img{
-            width: 500px;            
+        body{
+            background-color: #E0E0E0;
+        }
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .article{
+            width: 850px;
+            /* border: 1px solid gray; */
+            border-radius: 50px;
+            margin: 10px auto;
+            padding: 30px 80px;
+            background-color: #ffffff;
+            display:block;
+        }
+        .t1{
+            color:#0080FF;
+            margin-bottom: 20px;
         }
         .img1{
-            border: 3px solid red;
-            padding:50px 50px 170px 50px;
-            margin: 10px 50px 50px 50px;
+            width: 400px;
+        }
+        figure{
+            width: 400px;
             float: left;
+            border:3px solid red;
+            padding: 5px;
+            margin-right: 20px;
         }
-        .box{
-            width: 1000px;
-            height: 1000px 3000px;
-            border: 5px solid skyblue;
-            padding: 20px;
-
-            position:absolute;
-            left: 50%;
-            top: 50%;
-
-            margin-top: -400px;
-            margin-left: -525px;
+        figcaption{
+            color: #c52f2f;
+            font-style: italic;
         }
-        .headbox{
-            margin: -10px 10px 10px 10px;
+        p{
+            margin-bottom: 20px;
+            text-align: justify;
+            line-height: 24px;
         }
+        /* text-align: justify-->文字左右對齊 */
+        /* line-height-->行高 */
     </style>
+    <script>
+        document.createElement("article");
+	    document.createElement("figure");
+	    document.createElement("figcaption");
+    </script>
 </head>
 
 <body>
-    <div class="box">
-        <h2 class="headbox">
+    <article class="article">
+        <h2 class="t1">
             高齡長者全台開打AZ疫苗　指揮中心籲地方政府造冊接種務必在2-8度下保存
         </h2>
 
-        <figure class = img1 style="background-color:green;">
-            <img class="img" src="images/c06ca7f00575c1d403a69d9a69bf35b2.webp" alt="鴻海創辦人郭台銘" title="舉起你的雙手">
+        <figure style="background-color:green;">
+            <img class="img1" src="images/c06ca7f00575c1d403a69d9a69bf35b2.webp" alt="鴻海創辦人郭台銘" title="舉起你的雙手">
             <figcaption>
                 鴻海創辦人郭台銘日前喊話要捐贈500萬劑BNT疫苗
             </figcaption>
         </figure>
-        
-        <br>
+
+
         <p>
             本土疫情嚴峻，全台多個縣市將在開始為高齡長者施打AZ疫苗，中央流行疫情指揮中心上午舉行全國防疫會議，副指揮官陳宗彥9點半主持會後記者會。<br>陳宗彥呼籲，疫苗施打對象請地方政府審慎評估，哪一些屬於第一類防疫人員，依照名冊所列讓民眾接種，疫苗保存也必須在2至8度的環境中，開瓶後六小時內完成施打。
         </p>
@@ -61,12 +81,7 @@
         </p>
         <p>
             此外，高端疫苗10日宣布解盲成功，聯亞生技月底也將解盲，有媒體報導，菲律賓已致函我方，有意直接採認我國EUA，讓國產疫苗可在當地免做三期臨床直接施打。
-        </p>  
-        
-        <br>
-        <br>
-        <br>
-
+        </p>
         <p>
             對此，陳宗彥表示，兩家公司都有個別找尋合作試驗國家，其他國家是否有申請比照台灣EUA方式，會請食藥署再了解。
         </p>
@@ -118,7 +133,7 @@
         <p>
             此外，高端疫苗10日宣布解盲成功，聯亞生技月底也將解盲，有媒體報導，菲律賓已致函我方，有意直接採認我國EUA，讓國產疫苗可在當地免做三期臨床直接施打。對此，陳宗彥表示，兩家公司都有個別找尋合作試驗國家，其他國家是否有申請比照台灣EUA方式，會請食藥署再了解。
         </p>
-    </div>
+    </article>
 </body>
 
 </html>

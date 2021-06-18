@@ -1,0 +1,22 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@1,100&display=swap');
+        @font-face {
+            src: url(../fonts/JustOldFashion.ttf);
+            font-family: font1;
+        }
+        .font1{
+            font-family: font1;
+        }
+        @font-face {
+            src: url(../fonts/SCRIPTIN.ttf);
+            font-family: font2;
+        }
+        .font2{
+            font-family: font2;
+        }
+        
+        /* 如果找不到'Raleway'，則會使用cursive */
+        p{
+            font-family: 'Raleway',cursive;
+            font-size: 2em;
+            color: red;
+        }
