@@ -8,7 +8,7 @@
     <title>文繞圖</title>
     <style>
         body{
-            background-color: #E0E0E0;
+            background-color: #7a16cc;
         }
         *{
             margin: 0;
@@ -26,10 +26,16 @@
         .t1{
             color:#0080FF;
             margin-bottom: 20px;
+            text-shadow: -5px -5px 5px gray;
         }
         .img1{
             width: 400px;
+            opacity: 0.5;  /* 透明度介於0到1之間 */
         }
+        .img1:hover{
+            opacity: 1;   /* 滑鼠移到圖片，透明度變1 */
+        }
+
         figure{
             width: 400px;
             float: left;
