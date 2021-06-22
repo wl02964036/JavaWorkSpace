@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="zh-tw">
+<head>
+    <meta charset="UTF-8">
+    <title>02DataTypes.html</title>
+</head>
+<body>   
+    <script>
+        //數字變數
+        let a=10;
+        console.log(`a=${a},typeof a=${typeof a}`);     //a=10,typeof a=number
+
+        //字串變數
+        a="abc";
+        console.log(`a=${a},typeof a=${typeof a}`);     //a=abc,typeof a=string
+
+        a={}
+        console.log(a);
+        console.log(`a=${a},typeof a=${typeof a}`);     //[object Object]  [datatype class]
+                                                        // (物件)  (Class)
+        //布林變數    
+        let b=true;
+        let c=b+2;
+        console.log(`b=${b},typeof b=${typeof b}`);     //b=true,typeof b=boolean
+        console.log(`c=${c},typeof c=${typeof c}`);     //c=3,typeof b=number 
+        
+        if(c)
+            console.log(true);  //ok
+        else
+            console.log(false);
+
+        //null
+        let n=null;
+        console.log(`n=${n},typeof n=${typeof n}`);     //n=null,typeof n=object 
+
+        //如果沒有初始值，JavaScript會自動將變數的值初始化為undefined(預設值 default value)        
+        let u;
+        console.log(`u=${u},typeof u=${typeof u}`);     //u=undifined,typeof undifined 
+        
+        let i=null;
+        let j=i+2;
+        console.log(j);
+
+        let w=NaN;
+        let x=w+2;
+        console.log(x);
+
+        let z="";
+        let v=z+2;
+        console.log(v);
+
+        let q=undefined;
+        let e=q+2;
+        console.log(e);
+
+        //字串轉換為數值
+        console.log(`parseLnt('33p')=${parseInt('33p')}`);
+        console.log(`parseLnt('12.522')=${parseInt('12.522')}`);
+        console.log(`parseLnt('p33')=${parseInt('p33')}`);
+        console.log(`parseLnt('5.22A22')=${parseInt('5.22A22')}`);
+        console.log(`parseLnt('P5.22A22')=${parseInt('P5.22A22')}`);
+
+        //數值轉換為字串
+        let price=300;
+        console.log(typeof ("$"+price));    //string
+        console.log(typeof price.toString());    //string
+
+    </script>
+</body>
+</html>

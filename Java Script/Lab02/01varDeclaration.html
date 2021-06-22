@@ -1,0 +1,61 @@
+﻿<!DOCTYPE html>
+<html lang="zh-tw">
+<head>
+    <meta charset="UTF-8">
+    <title>01varDeclarationTypeTransfer.html</title>
+</head>
+<body>   
+    <script>
+        //literal(字面值)
+        console.log(0b1010);
+        console.log(0o12);
+        console.log(0x4e00);
+        
+        //1.var變數宣告
+        var a;
+        //定義初始值
+        a=10;
+        //2.變數宣告時可以同時賦予初始值
+        var a = 10;
+
+        //3.不宣告變數，直接賦予初始值
+        a=20;
+        //顯示變數值
+        console.log(a);
+        console.log("a="+a);
+        
+        //let變數宣告
+        let b;
+        // let b=20;
+
+        if(true){
+            var username="Jack";
+            var abc=100;
+            console.log(abc);
+        }
+        console.log(abc);
+        console.log(username);
+
+        //const變數宣告
+        // const PI
+        const PI=3.1416;
+        // PI=3.14159;      //不可重複指派
+
+        //樣板字面值(Template Literals)(
+        let price=12.5,qty=300;
+        console.log("price=$"+price+",qty="+qty);
+        console.log(`price=$${price},qty=${qty}`);
+            
+        //跳脫字元
+        //"a+b"
+        console.log("\"a+b\"");
+        console.log('"a+b"');
+
+        //\a+b\
+        console.log("\\a+b\\");
+        console.log("\x41\x61\x40");     //Aa@
+        console.log("\u4e00\u4e01");     //一丁
+            
+    </script>
+</body>
+</html>
