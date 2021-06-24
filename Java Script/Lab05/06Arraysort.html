@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="zh-tw">
+<head>
+    <meta charset="UTF-8">
+    <title>06Arraysort.html</title>
+</head>
+<body>
+    <div id="div1"></div>
+    <script>
+       const numbers = [4, 2, 5, 1, 3];
+       numbers.sort();
+       console.log(numbers); // [1, 2, 3, 4, 5]
+
+    const numAry = [35, 6, 78, 12, 54, 9];   //他的預設是以unicode字碼做排序
+    // numAry.sort();
+    // console.log(numAry);
+
+    numAry.sort(function (a, b) {
+        console.log(`a=${a},b=${b}`);
+        return a - b; 
+    });
+    console.log(numAry);
+   </script>
+</body>
+</html>

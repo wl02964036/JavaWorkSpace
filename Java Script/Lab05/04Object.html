@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="zh-tw">
+<head>
+    <meta charset="UTF-8">
+    <title>04Object.html</title>
+</head>
+<body>
+    <div id="myDiv"></div>
+    <script>
+        function f(){   //函數宣告
+            return this.brand+","+this["max speed"];
+        }
+
+        let car=new Object();   //物件的成員包括property and method
+        car.brand="auti";
+        car.color="blue";
+        car["max speed"]="200";
+
+        //呼叫方法
+        car.print1=f;   //function f 的內容 =  binding(綁定)
+        console.log(car);
+        console.log(car.print1());  //呼叫方法
+
+        let cars={
+            brand:"audi",
+            color:"red",
+            "max speed":300,
+            print2:function(){  //匿名函數
+                return this.color+"-"+this["max speed"]
+            }
+        }
+        // console.log(cars);
+        console.log(cars.print2())//呼叫方法
+        
+        
+        console.log("===================");
+
+    //for..in
+        let myDiv=document.getElementById("myDiv");
+
+        for(let pro in cars){
+            // console.log(pro)
+            // console.log(cars[pro]);
+            console.log("cars["+pro+"]="+cars[pro]);
+            myDiv.innerHTML+="<li>"+"cars["+pro+"]="+cars[pro]+"</li>";     //ES5
+            myDiv.innerHTML+=`<li>cars[${pro}]=${cars[pro]}</li>`;  //ES6        
+        }
+    
+    </script>        
+</body>
+</html>

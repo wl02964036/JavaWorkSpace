@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="zh-tw">
+<head>
+    <meta charset="UTF-8">
+    <title>05ArrayObject.html</title>
+</head>
+<body>
+    <script>
+        //Array 物件
+        let balls=["baseball","basketball","tennis",123];
+        console.log(balls);
+
+        
+        let myfoods = [["apple", "banana", "grape"], ["pork", "beef"]];     //[index0,index1]   //index0=["apple", "banana", "grape"]
+        console.log(myfoods.length);    //2
+        for (let i = 0, maxi = myfoods.length; i < maxi; i++) {
+            console.log(myfoods[i]);
+            console.log(`myfoods[${i}]=${myfoods[i].length}`);
+            for (let j = 0, maxj = myfoods[i].length; j < maxj; j++) {
+                console.log(myfoods[i][j]);
+            }
+        }
+
+
+        for(let myfood of myfoods){     //單純想印value
+            console.log(myfood);
+            for(let food of myfood){
+                console.log(food);
+            }
+        }
+
+        //Array 方法
+        let ary=[4,5,6];
+        console.log(balls.concat(ary));
+        console.log(balls.join("-"));
+        console.log(balls);
+        console.log(balls.reverse);
+
+        balls.push("item1","item2","item3");
+        console.log(balls);
+
+        console.log(balls.push(6,7,8));
+        console.log(balls);
+
+        balls.pop();
+        console.log(balls);
+
+        console.log(balls.slice(1,4));
+        console.log(balls);
+
+        balls.splice(1,2,"itemA","itemB","itemC",);  //(從哪刪,刪到哪,插入,插入,插入)
+        console.log(balls);
+        
+    </script>
+</body>
+</html>

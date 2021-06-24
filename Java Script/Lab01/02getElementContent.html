@@ -8,15 +8,21 @@
     <div id="myDiv">div</div>
     <script>
         var eleObj=document.getElementById("myDiv");
-        // console.log(eleObj);
+        console.log(eleObj);
         var eleObjcont=eleObj.innerHTML;
-        // console.log(eleObjcont);
+        console.log(eleObjcont);
         eleObj.innerHTML="JavaScript";
-        // console.log(eleObj);
+        console.log(eleObj);
+        console.log(eleObj.innerHTML);
 
         eleObj.innerHTML+="EEIT";
+        console.log(eleObj.innerHTML);
         eleObj.innerHTML=eleObj.innerHTML+"<h2>EEIT<h2>";
+        console.log(eleObj.innerHTML);
         eleObj.innerHTML+="<h2>EEIT</h2>";
+        console.log(eleObj.innerHTML);
+        eleObj.innerHTML=eleObj.innerHTML+"<h2>EEIT<h2>";
+        console.log(eleObj.innerHTML);
     </script>
 </body>
 </html>

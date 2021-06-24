@@ -7,13 +7,30 @@
 <body>
     <script>
             //廣域(全域)變數
-    
+            var a=100;  //global variable
+            // var a;   //undefined
+            // a=100;
     
             //函數宣告定義
-    
+            function f(){
+                var a=10;   //local variable
+                // a=1000;     //global variable
+
+                for(let a=1;a<5;a++){
+                    console.log("block a="+a);
+                }
+
+            console.log("function a="+a);
+            console.log("window.a="+window.a);  //global variable
+            console.log("this.a="+this.a);  //global variable
+            console.log(this);  //window object
+            }
     
             //呼叫函數
-
+            console.log("function call before a="+a);
+            console.log("function call before a="+window.a);
+            f();
+            console.log("function call after a="+a);
 
     </script>
 </body>
