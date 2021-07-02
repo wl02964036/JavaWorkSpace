@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery</title>
+    <style>
+        body{
+            font-size:17px;
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: aliceblue;
+            line-height: 1.5em;
+        }
+        header{
+            background: #333;
+            color: lightgreen;
+            padding: 20px;
+            text-align: center;
+            margin-bottom: 10px;
+        }
+        #container{
+            width: 90%;
+            margin: auto;
+            padding: 10px;
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+        <h1>JQuery</h1>
+    </header>
+    <div id="container">
+        <!-- <h3 id="h3js">JavaScript</h3> -->
+        <h3 id="h3js">JavaScript</h3>
+        <h3 id="h3js">JavaScript</h3>
+        <h3 id="h3js">JavaScript</h3>
+        <hr>
+        <!-- <h3 id="h3jq" class="h3jq">JavaScript</h3> -->
+        <h3 class="h3jq">JavaScript</h3>
+        <h3 class="h3jq">JavaScript</h3>
+        <h3 class="h3jq">JavaScript</h3>
+    </div>
+    <!-- <script src="/jquery-3.6.0.js"></script> -->
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script>
+        /*
+        who-->h3
+        when-->mouseenter
+        what-->function style color
+        */
+
+            // JavaScript
+        // let h3=document.getElementById("h3js");
+        // console.log(h3);
+        // h3.addEventListener("mouseover",function(){
+        //     console.log("123");
+        //     h3.style.color="yellow";
+        // })
+        // h3.addEventListener("mouseout",function(){
+        //     console.log("123");
+        //     h3.style.color="black";
+        // })
+        // h3.addEventListener("click",function(){
+        //     console.log("123");
+        //     h3.style.color="green";
+        // })
+
+            //JQuery
+        // $('#h3jq').on('mouseenter',function(){
+        //     $('#h3jq').css('color','lightgreen')
+        // }).on('mouseleave',function(){
+        //     $('#h3jq').css('color','black')
+        // }).on('click',function(){
+        //     $('#h3jq').css('color','red')    
+        // })
+
+            //JavaScript
+        let h3=document.querySelector("#h3js");
+        console.log(h3);
+        let h3All=document.querySelectorAll("#h3js");
+        for(let i=0;i<h3All.length;i++){
+            h3All[i].addEventListener("mouseover",function(){
+            this.style.color="yellow";
+        })
+            h3All[i].addEventListener("mouseout",function(){
+            this.style.color="black";
+        })
+    }
+            //JQuery
+        $('h3.h3jq').on('mouseenter',function(){
+            $(this).css('color','lightgreen')
+        }).on('mouseleave',function(){
+            $(this).css('color','black')
+        }).on('click',function(){
+            $(this).css('color','red')    
+        })
+    </script>
+</body>
+</html>

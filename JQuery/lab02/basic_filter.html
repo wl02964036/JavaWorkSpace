@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery Lab02</title>
+    <link rel="stylesheet" href="/style.css">
+    <style>
+        .table1{
+            border:2px solid black;
+            width: 400px;
+            height:400px;
+            margin: 10 auto;
+        }
+        tr,td{
+            border: 1px solid black;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Basic Filter</h1>
+    </header>
+    <div id="container">
+        <table class="table1">
+            <!--ctri alt 下-->
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td class="not"></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td class="not"></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td class="not"></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td class="not"></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td class="not"></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+            </tr>
+            <ul id="list1">
+                <li class="not">List Item</li>
+                <li><span>List Item</span></li>
+                <li class="not">List Item</li>
+                <li>List Item</li>
+                <li><span>List Item</span></li>
+                <li>List Item</li>
+                <li class="not">List Item</li>
+                <li>List Item</li>
+            </ul>
+            <hr>
+            <p id="para1">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eveniet saepe expedita ducimus iure, quis provident in quae mollitia odio, ipsa eos reiciendis voluptates a voluptatem dolore dolorum quaerat officiis voluptate.</p>
+            <p id="para2">Hello Lorem, ipsum dolor sit amet consectetur adipisicing elit. Adipisci accusamus accusantium enim praesentium dolorem doloribus distinctio, dolore provident commodi similique voluptatibus, nostrum animi reiciendis minima. Asperiores debitis ipsam facilis ut?</p>
+            <p id="para3"><span>jQuery</span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae iste deleniti blanditiis nulla accusantium dolores voluptatibus consequatur esse eveniet fugit voluptates eaque dignissimos voluptatem, explicabo similique, sit expedita ipsa hic!</p>
+            <p id="para4"></p>
+        </table>
+
+    </div>
+    <script src="/jquery-3.6.0.js"></script>
+    <script>
+        $(function () {
+            //basic
+            let all=$("*");
+            console.log(all);
+            let ele=$("table");
+            console.log(ele);
+            console.log($(".table1"));
+            console.log($("#list1"));
+
+
+            //filter(由左而右，由上而下，從0開始)
+            // $("td:eq(1)").css("background","pink");  //eq(n) n從0開始
+            // $("td:eq(4)").css("background","pink");
+            // $("td:even").css("background","pink");
+            // $("td:odd").css("background","pink");
+            // $("td:lt(4)").css("background","pink");     //lt(n):<n  小於4都變顏色
+            // $("td:gt(6)").css("background","pink");     //gt(n):>n  小於4都變顏色
+            // $("td:first").css("background","pink");
+            // $("td:last").css("background","pink");
+            // $("td:not(.not").css("background","pink");
+
+            //content filter
+            // $("p:contains('Hello')").css("background","lightgreen");    //內文過濾器
+            // $("p:has(span)").css("background","pink");      //內文過濾器
+            $("p:empty").text("empty text");    //不受內文選擇器效果影響
+            // $("p:parent").css("background","greenyellow");  //只要有文字，就會選到
+            $("p:empty").text("empty text");    //不受內文選擇器效果影響
+
+            //child filter  //父元素下的子元素
+            $("tr td:first-child").css("background","lightgreen");
+            $("tr td:last-child").css("background","lightblue");
+            $("tr td:nth-child(2)").css("background","pink");   //nth-child(n) n從一開始
+            // $("tr td:only-child").text(":only-child");
+
+            //filtering
+            //:eq() 效果跟 .eq() 一樣，而且都是n從0開始
+            $("li").eq(4).css("background","pink");
+            $("li").first().css("background","pink");
+            $("li").last().css("background","pink");
+            $("li").not(".not").css("background","lightblue");
+            $("li").has("span").css("background","greenyellow");
+            $("li").on("click",function() {
+                if($(this).is("li:odd")){     //從0開始
+                    $(this).text("is(:odd)")
+                }
+            })
+        })
+    </script>
+</body>
+
+</html>

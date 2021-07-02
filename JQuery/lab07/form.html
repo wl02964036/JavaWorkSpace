@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Event</title>
+    <link rel="stylesheet" href="/style.css">
+    <style>
+        .div-input{
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Form Event</h1>
+    </header>
+    <div id="container">
+        <form>
+            <input type="text" id="input1" class="card-input" maxlength="4">
+            <input type="text" id="input1" class="card-input" maxlength="4">
+            <input type="text" id="input1" class="card-input" maxlength="4">
+            <input type="text" id="input1" class="card-input" maxlength="4">
+
+            <hr>
+
+            <div class="div-input">
+                <input type="text" id="input1" class="card-input1" maxlength="4">
+            </div>
+            <div class="div-input">
+                <input type="text" id="input1" class="card-input1" maxlength="4">
+            </div>
+            <div class="div-input">
+                <input type="text" id="input1" class="card-input1" maxlength="4">
+            </div>
+            <div class="div-input">
+                <input type="text" id="input1" class="card-input1" maxlength="4">
+            </div>
+        </form>
+    </div>
+    <script src="/jquery-3.6.0.js"></script>
+    <script>
+        $(function() {
+            $("#input1").focus(function(){
+                // console.log("focus");
+            })
+            $("#input1").blur(function(){
+                // console.log("blur");
+            })
+            $(".card-input").keyup(function(){
+                let maxLen=4;
+                let contentLen=$(this).val().length;
+                console.log(contentLen);
+                if(contentLen==maxLen){
+                    $(this).next().focus();
+                }
+            })
+            $(".card-input1").keyup(function(){
+                let maxLen=4;
+                let contentLen=$(this).val().length;
+                if(contentLen==maxLen){
+                    //往上到div,往後一個兄弟層找隔壁的div，再從div找下一個input
+                    $(this).parent().next().find(":input").focus();
+                }
+            })
+        })
+    </script>
+</body>
+</html>

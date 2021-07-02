@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>tree traversal</title>
+    <link rel="stylesheet" href="/style.css">
+    <style>
+        table {
+            border: 2px solid black;
+            width: 500px;
+            height: 500px;
+            margin: auto;
+            text-align: center;
+        }
+
+        tr,
+        td {
+            border: 1px solid black;
+        }
+
+        .box {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: pink;
+        }
+
+        .box2 {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background-color: greenyellow;
+            display: inline-block;            /* block屬性，用inline形式呈現 */
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Tree Traversal</h1>
+    </header>
+    <div id="container">
+        <table>
+            <tr>
+                <td>
+                    <div class="box">
+                        <div class="box2"></div>
+                    </div>
+
+                </td>
+                <td></td>
+                <td class="stop"></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>
+                    <div class="box">
+                        <div class="box2"></div>
+                    </div>
+                </td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td class="stop"></td>
+                <td></td>
+                <td>
+                    <div class="box">
+                        <div class="box2"></div>
+                    </div>
+                </td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td class="stop"></td>
+                <td></td>
+                <td></td>
+                <td>
+                    <div class="box">
+                        <div class="box2"></div>
+                    </div>
+                </td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td>
+                    <div class="box">
+                        <div class="box2"></div>
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <script src="/jquery-3.6.0.js"></script>
+    <script>
+        $(function () {
+            $("td").on("click", function () {
+                //children() 一次往下找一層children
+                // $(this).children(".box").css("background", "lightblue");
+                //find() 一次往下找完所有children
+                // $(this).find(".box2").css("background", "red");
+
+                //兄弟層
+                //next()   往後找 
+                // $(this).next().css("background", "red");
+                // $(this).nextAll().css("background", "red");
+                // $(this).nextUntil(".stop").css("background", "red");
+
+                //prev()    往前找
+                // $(this).prev().css("background", "red");
+                // $(this).prevAll().css("background", "red");
+                // $(this).prevUntil(".stop").css("background", "red");
+
+                //mix
+                // $(this).next().css("background", "red");
+                // $(this).prev().css("background", "red");
+
+                // $(this).next().css("background","lightgreen")
+                // .prev().prev().css("background","lightblue");
+
+                //end()
+                // $(this).css("background","none")
+                // .next().css("background","lightgreen")
+                // .end().prev().css("background","lightblue");     //end() 會回到最一開始選擇的選擇器
+
+                //siblings()  同一層
+                $(this).css("background","none")
+                .siblings().css("background","pink");
+            })
+
+            $(".box").on("click",function() {
+                //parent
+                // $(this).parent().css("background", "lightblue"); //td
+                // $(this).parent().parent().css("background", "lightblue");   //tr
+                // $(this).parentsUntil("table").css("background", "red");     //往上找，找table為止
+                console.log($(this).parent());  //讓我們知道最大到html為止
+                // $(this).closest("tr").css("background", "lightblue");     //往上找，找到最接近tr
+            })
+
+
+        })
+    </script>
+</body>
+
+</html>

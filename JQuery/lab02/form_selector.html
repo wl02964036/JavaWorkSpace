@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>form_selector</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <header>
+        <h1>Form Selector</h1>
+    </header>
+    <div id="container">
+        <form action="">
+            <div>
+                <label for="">Text:</label>
+                <input type="text" value="someTextValue">
+            </div>
+            <div>
+                <label for="">Radio</label>
+                <input type="radio" id="radio1">A
+                <input type="radio" id="radio2" disabled="disabled">B
+                <input type="radio" id="radio3" checked="checked">C
+            </div>
+            <div>
+                <label for="">CheckBoxes</label>
+                <input type="checkbox" name="" id="checkbox1" value="1">1
+                <input type="checkbox" name="" id="checkbox2" value="2">2
+                <input type="checkbox" name="" id="checkbox3" value="3">3
+            </div>
+            <div>
+                <select name=""id="">
+                    <option value="1">A</option>
+                    <option value="2">B</option>
+                    <option value="3">C</option>
+                </select>
+            </div>
+        </form>
+        <hr>
+        <input type="button" value=":checked" id="checked">
+        <input type="button" value=":selected" id="selected">
+        <input type="button" value=":text" id="text">
+        <input type="button" value=":input" id="input">
+    </div>
+    <script src="/jquery-3.6.0.js"></script>
+    <script>
+        $(function(){
+            $("#checked").on("click",function(){
+                console.log($(":checked"))
+            })
+            $("#selected").on("click",function(){
+                $(":selected").css("background","greenyellow");
+            })
+            $("#text").on("click",function(){
+                $(":text").css("background","skyblue");
+            })
+            $("#input").on("click",function(){
+                $(":input").css("background","yellow");
+            })
+        })
+    </script>
+</body>
+</html>

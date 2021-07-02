@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mouse Event</title>
+    <link rel="stylesheet" href="/style.css">
+    <style>
+        div.out{
+            width: 40%;
+            height: 250px;
+            margin: 0 15px;
+            background-color: lightskyblue;
+            float:left;
+        }
+        div.in{
+            width: 60%;
+            height: 60%;
+            background-color: yellow;
+            margin: 10px auto;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Mouse Event</h1>
+    </header>
+    <div id="container">
+
+        <input type="button" value="Botton" id="btn">
+
+        <hr>
+
+        <div class="box out overout">
+            <span>move your mouse</span>
+            <div class="in"></div>
+        </div>
+        <div class="box out enterleave">
+            <span>move your mouse</span>
+            <div class="in"></div>
+        </div>
+
+    </div>
+    <script src="/jquery-3.6.0.js"></script>
+    <script>
+        $(function() {
+            let count_overout=0;
+            $("div.overout").mouseover(function() {
+                count_overout+=1;
+                $(this).find("span").text(`mouse over x ${count_overout}`);
+            }).mouseout(function() {
+                $(this).find("span").text(`mouse over x ${count_overout}`);
+            })
+
+            let count_enterleave=0;
+            $("div.enterleave").mouseenter(function() {
+                count_enterleave+=1;
+                $(this).find("span").text(`mouse over x ${count_enterleave}`);
+            }).mouseleave(function() {
+                $(this).find("span").text(`mouse over x ${count_enterleave}`);
+            })
+        })
+
+        $(function() {
+            //click
+            //dblclick  //手機板比較少用
+            $("#btn").on("dblclick",function() {
+                console.log("double click");
+            })
+            //contextmenu   //手機板比較少用
+            $("#btn").on("contextmenu",function() {
+                console.log("right click");
+            })
+            $("#btn").on("mousedown",function() {
+                console.log("mousedown");
+            })
+            // $("#btn").on("mouseenter",function() {
+            //     console.log("mouseenter");
+            // })
+            // $("#btn").on("mouseleave",function() {
+            //     console.log("mouseleave");
+            // })
+            $("#btn").hover(function() {    //hover() mouseenter+mouseleave //僅限JQuery
+                console.log("hover");
+            })
+        })
+    </script>
+</body>
+</html>
