@@ -5,22 +5,29 @@
     <title>02DOM2.html</title>
     <script>
         document.addEventListener("DOMContentLoaded", function () {
-            document.querySelector("#CEle").addEventListener("click", CreateElement)
+            document.querySelector("#CEle").addEventListener("click", CreateElement);
+            document.querySelector("#REle").addEventListener("click", RemoveElement);   //remove3
         });
+
+        function RemoveElement(){   //remove4
+            let theNode=document.querySelector("#idImg");
+            // theNode.parentNode.removeChild(theNode);
+            theNode.remove();
+        }
 
         function CreateElement() {
             let theDIV = document.querySelector("#iddiv");  //取得div物件
 
-            let eleP = document.createElement("p");
-            let txtP = document.createTextNode("Hello World");
-            eleP.appendChild(txtP);
+            let eleP = document.createElement("p");     //<p></p>
+            let txtP = document.createTextNode("Hello World");  //Hello World
+            eleP.appendChild(txtP);      //<p>Hello World</p>  
 
-            theDIV.appendChild(eleP);
+            theDIV.appendChild(eleP);       //<div id="iddiv">div<p>Hello World</p></div>
 
-            let eleImg = document.createElement("img");
-            eleImg.setAttribute("src", "DOM/DOMImage/rabbit-hat.gif");
-
-            theDIV.appendChild(eleImg);
+            let eleImg = document.createElement("img");     //<img>
+            eleImg.setAttribute("src", "DOM/DOMImage/rabbit-hat.gif");      //<img src=...>
+            eleImg.setAttribute("id","idImg");  //remove1
+            theDIV.appendChild(eleImg);     //<div id="iddiv">div<p>Hello World</p><img src=...></div>
         }
     </script>
 </head>
@@ -28,6 +35,7 @@
 <body>
     <div id="iddiv">div</div>
     <input type="button" id="CEle" value="CreateElement">
+    <input type="button" id="REle" value="RemoveElement">   <!--remove2-->
 
 </body>
 </html>

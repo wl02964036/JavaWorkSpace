@@ -11,6 +11,15 @@
         });
 
         function checkf() {
+            let hobbys=document.getElementsByName("hobby");     //打勾的為true，沒打勾的為false
+            console.log(hobbys);
+            for(let hobby of hobbys){
+                console.log(hobby.checked);
+                if(hobby.checked){
+                    console.log(hobby.value);
+                }
+            }
+
 
         }
 
@@ -19,7 +28,15 @@
         }
 
         function submitf() {
+            let theName=document.getElementsByName("txtName")[0].value;
+            console.log(theName);
+            console.log(theName.value);
 
+            if(theName==""){
+                document.querySelector("#idsp").innerHTML="you must enter";
+            }else{
+                document.forms[0].submit();                
+            }
         }
     </script>
 </head>

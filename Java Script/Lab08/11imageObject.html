@@ -11,14 +11,50 @@
         //3. 使用 document.querySelectorAll("area")取得所有area元素(slide 93)  
         //=============================================================
         document.addEventListener("DOMContentLoaded", function () {
-            document.querySelector("#idTaipei").addEventListener("mouseover",mouseOver);//事件繫結
-            document.querySelector("#idTaipei").addEventListener("mouseout",mouseOut);
-            document.querySelector("#idTaipei").addEventListener("click",Click);           
+            // document.querySelector("#idTaipei").addEventListener("mouseover",mouseOver);//事件繫結
+            // document.querySelector("#idTaipei").addEventListener("mouseout",mouseOut);
+            // document.querySelector("#idTaipei").addEventListener("click",Click); 
+            // document.querySelector("#idTaoyuan").addEventListener("mouseover",mouseOver);//事件繫結
+            // document.querySelector("#idTaoyuan").addEventListener("mouseout",mouseOut);
+            // document.querySelector("#idTaoyuan").addEventListener("click",Click);
+
+            
+            // let areas=document.getElementsByTagName("area");     //ES5
+            // //console.log(areas);
+            // console.log(areas[0]);
+            // let areasLen=areas.length;
+            // // alert(areasLen);
+
+            // for(let i=0;i<areasLen;i++){
+            //     areas[i].addEventListener("mouseover",mouseOver);
+            //     areas[i].addEventListener("mouseout",mouseOut);
+            //     areas[i].addEventListener("click",Click);
+            // }
+
+
+            // let areas=document.querySelectorAll("area");    
+            let areas=document.querySelectorAll("area.imbtn");  //(array.class)   //只抓想要的圖檔
+            console.log(areas);
+            for(let area of areas){     //ES6
+                area.addEventListener("mouseover",mouseOver);
+                area.addEventListener("mouseout",mouseOut);
+                area.addEventListener("click",Click);
+            }
         });  
 
-        function mouseOver() {            
-            document.images[0].src = "images/MapTaipei.gif";          
+        function mouseOver() {   
+            // console.log(this.id);   
+            console.log(this.id.substr(2));      
+            // document.images[0].src = "images/MapTaipei.gif";     
+            document.images[0].src = "images/Map"+this.id.substr(2)+".gif";   //ES5
+            document.images[0].src = `images/Map${this.id.substr(2)}.gif`;    //ES6  
         }
+
+        // function mouseOver2() {    
+        //     // console.log(this.id);  
+        //     console.log(this.id.substr(2));      
+        //     document.images[0].src = "images/MapTaoyuan.gif";          
+        // }
 
 
         function mouseOut() {            
@@ -27,7 +63,9 @@
 
 
         function Click() {            
-            document.getElementById("mapdiv").innerHTML = "<img src='images/Taipei.gif'/>";
+            // document.getElementById("mapdiv").innerHTML = "<img src='images/Taipei.gif'/>";
+            document.getElementById("mapdiv").innerHTML = 
+            `<img src='images/${this.id.substr(2)}.gif'/>`;     //ES6
         }
     </script>
 </head>
@@ -35,10 +73,10 @@
     <div style="float:left;width:200px;height:343px;margin-top:20px;">
         <img id="imgMap" alt="" src="images/map00.gif"  usemap="#FPMap0"/>
             <map id="FPMap0" name="FPMap0">
-                <area  id="idTaipei" coords="136,21,144,13,151,29,145,38,136,21"  shape="poly" />
-                <area  id="idTaoyuan" coords="95,38,120,22,132,34,125,45,138,64,128,78,95,37"  shape="poly" />
+                <area  id="idTaipei" coords="136,21,144,13,151,29,145,38,136,21"  shape="poly" class="imbtn" />
+                <area  id="idTaoyuan" coords="95,38,120,22,132,34,125,45,138,64,128,78,95,37"  shape="poly" class="imbtn" />
                 <area  id="idTaichung" coords="46,113,58,89,87,104,120,91,134,100,122,113,81,122,70,134,45,112,45,112"  shape="poly" />
-                <area  id="idKaohsiung" coords="18,241,39,242,86,185,98,201,76,243,72,250,46,251,39,283,25,259,18,240"  shape="poly" />
+                <area  id="idKaohsiung" coords="18,241,39,242,86,185,98,201,76,243,72,250,46,251,39,283,25,259,18,240"  shape="poly" class="imbtn" />
             </map>
     </div>
     <div id="mapdiv" style="float:left;width:auto;height:auto;"></div>

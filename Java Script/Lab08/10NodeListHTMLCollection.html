@@ -14,38 +14,40 @@
         document.addEventListener("DOMContentLoaded", function () {
             document.getElementById("idcheck").addEventListener("click",check);
         });
-        function check() {
-            /*
+
+        function check() {            
             //NodeList
             let theHobbys = document.getElementsByName("hobby");
-            alert(theHobbys);  //[object NodeList]
-            //let theSelectors = document.querySelectorAll("input");
-            //alert(theSelectors); //[object NodeList]
-            let theHobbysLen = theHobbys.length;
+            // alert(theHobbys);  //[object NodeList]
+            // console.log(theHobbys);
+            // console.log(theHobbys[0]);
+            let theSelectors = document.querySelectorAll("input");
+            // alert(theSelectors); //[object NodeList]
+            // let theHobbysLen = theHobbys.length;
 
-            for (let i = 0; i < theHobbysLen; i++) {
-                //console.log(theHobbys.item(i).value);
-                console.log(theHobbys[i].value);
-            }
-            */
+            // for (let i = 0; i < theHobbysLen; i++) {
+            //     console.log(theHobbys.item(i).value);
+            //     console.log(theHobbys[i].value);
+            // }
+            
 
 
-            /*
+            
             //HTMLCollection
             let theInputs = document.getElementsByTagName("input");
-            //alert(theInputs);  //[object HTMLCollection]
-            //let theClass = document.getElementsByClassName("ch");
-            //alert(theClass);  //[object HTMLCollection]
+            alert(theInputs);  //[object HTMLCollection]
+            let theClass = document.getElementsByClassName("ch");
+            alert(theClass);  //[object HTMLCollection]
             let theInputsLen = theInputs.length;
 
             for (let i = 0; i < theInputsLen; i++) {
-                //console.log(theInputs.item(i).value);
-                //console.log(theInputs[i].value);
+                console.log(theInputs.item(i).value);
+                console.log(theInputs[i].value);
             }
-            //console.log(theInputs.namedItem("txtName").value);  //abc
+            console.log(theInputs.namedItem("txtName").value);  //abc
             console.log(theInputs.namedItem("hobby").value);  //reading 傳回第一個
             console.log(theInputs["hobby"].value);
-            */
+            
         }
     </script>
 </head>

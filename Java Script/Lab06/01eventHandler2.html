@@ -1,16 +1,18 @@
 ﻿<!DOCTYPE html>
 <html lang="zh-tw">
+
 <head>
     <meta charset="UTF-8">
     <title>01eventHandler2.html</title>
 </head>
+
 <body>
     <!-- HTML屬性事件處理程序 -->
     <h1 onclick="f1();">method 1</h1>
-    
+
     <!-- JavaScript屬性事件處理程序 -->
     <h1 id="m2">method 2</h1>
-    
+
     <!-- W3C DOM 事件處理器序 -->
     <h1 id="m3">method 3</h1>
 
@@ -19,18 +21,25 @@
             alert("method 1");
         }
 
-        function f2() {
-            alert("method 2");
-        }
+        // function f2() {
+        //     alert("method 2");
+        // }
 
-        function f3() {
-            alert("method 3");
-        } 
-         
-        document.getElementById("m2").onclick=f2;         
-        document.getElementById("m3").addEventListener("click",f3);         
-        
+        // function f3() {
+        //     alert("method 3");
+        // }
+
+        // document.getElementById("m2").onclick = f2;   //函數宣告
+        document.getElementById("m2").onclick = function () {   //匿名宣告(沒有函數名稱)    //當很多功能累加上去，出錯
+            alert("method 2xx");
+        };
+
+        // document.getElementById("m3").addEventListener("click", f3, false);   //函數宣告
+        document.getElementById("m3").addEventListener("click", function () {   //匿名宣告(沒有函數名稱)   //沒事
+            alert("method 3xx");
+        },false);
     </script>
-        
+
 </body>
+
 </html>

@@ -36,28 +36,39 @@
 
         function dragStartHandler(e) {
             //儲存要拖放的資料
+            // alert(e.target.id);
+            e.dataTransfer.setData("text/plain",e.target.id);   //dragItem
 
         }
 
 
         function dragoverHandler(e) {
             //取消預設動作
+            e.preventDefault();
         }
 
         function dropHandler(e) {
             //取消預設動作
+            e.preventDefault();
 
             //取出拖放資料
+            let eleID=e.dataTransfer.getData("text/plain"); //id
+            // alert(eleID);
+            let eleObj=document.getElementById(eleID);  //object
+            // console.log(eleObj);
 
             //建立div元素
-
+            let eleDiv=document.createElement("div");
 
             //設定屬性及外觀
-
-
+            eleDiv.innerHTML=eleObj.innerHTML;
+            console.log(eleDiv);
+            eleDiv.setAttribute("class","dragItemStyle");
 
             //新增到dropZone or dropZone1元素後面
-
+            // console.log(e.currentTarget.id);
+            console.log(e.currentTarget);
+            e.currentTarget.appendChild(eleDiv);
 
         }
     </script>

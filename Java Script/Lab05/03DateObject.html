@@ -11,52 +11,60 @@
         console.log(d);
 
         //建立日期物件語法 2
-        d=new Date("2021-06-24");
+        d=new Date("2021-05-24");
         console.log(d);
 
-        d=new Date("2021-6-24");
+        d=new Date("2021-5-24");
         console.log(d);
 
-        d=new Date("2021-06-24T13:36:30");
+        d=new Date("2021-05-24T13:36:30");
         console.log(d);
 
-        d=new Date("2021-6-24T13:36:30");
+        d=new Date("2021-5-24T13:36:30");
         console.log(d); //Invalid Date
 
-        d=new Date("2021-06-24T1:36:30");
+        d=new Date("2021-05-24T1:36:30");
         console.log(d); //Invalid Date
 
-        d=new Date("2021-06-24T01:36:30");
+        d=new Date("2021-05-24T01:36:30");
         console.log(d);
 
-        d=new Date("2021/6/24 1:36:30 pm");
+        d=new Date("2021-5-24 1:36:30 pm");
+        console.log(d);
+
+        d=new Date("2021/5/24 01:36:30 pm");
         console.log(d);
 
         //建立日期物件語法 3
         d=new Date(2021,5,24);
         console.log(d);
 
+        theMonth1 = d.getMonth();
         let theYear = d.getFullYear() - 1911;
-        let theMonth = d.getMonth() + 1;
+        let theMonth = d.getMonth() + 1;        //month是從Date(2021,5,24)抓來的
         let theDate = d.getDate();
-        // console.log(d);
+        console.log(d);
+        console.log(theMonth1);
         console.log(`民國${theYear}年${theMonth}月${theDate}日`);
-        console.log(new Date().getDay());
+        console.log(new Date().getDay());       //回傳今天是星期幾
 
         d=new Date("2021-06-31");
-        console.log(d);     //2021/7/21
+        console.log(d);     //2021/7/1
 
         d=new Date("2021/6/32");
         console.log(d);     //Invalid Date
 
         d=new Date(2021,5,31);
-        console.log(d);     //2021/5/31
+        console.log(d);     //2021/7/1
 
-        d=new Date(2021,5,32);
-        console.log(d);     //2021/7/2
+        d=new Date(2021,5,40);
+        console.log(d);     //2021/7/10
 
         d=new Date(2021,5,0);
         console.log(d);     //2021/5/31
+
+        d=new Date(2021,5,-10);
+        console.log(d);     //2021/5/21
 
 
     </script>

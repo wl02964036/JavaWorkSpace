@@ -7,15 +7,26 @@
         document.addEventListener("DOMContentLoaded", function () {
             document.getElementById("idimg").addEventListener("mouseover",mouseover);  //事件繫結，滑鼠滑入
             document.getElementById("idimg").addEventListener("mouseout",mouseout);    //事件繫結，滑鼠滑出
+            // document.getElementById("idimg").addEventListener("mousedown",mousedown);
+            // document.getElementById("idimg").addEventListener("mouseup",mouseup);
         });
 
         function mouseover() {
-            
+            document.getElementById("idimg").src="Images/chngstar.gif"           
         }
 
         function mouseout() {
-            
+            document.getElementById("idimg").src="Images/star.gif"           
         }
+
+        // function mousedown(){
+        //     document.getElementById("idimg").src="Images/chngstar.gif"
+        // }
+
+        // function mouseup(){
+        //     document.getElementById("idimg").src="Images/chngstar.gif"
+        // }
+
     </script>
 </head>
 <body>

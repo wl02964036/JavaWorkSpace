@@ -5,21 +5,33 @@
     <title>02setclock.html</title>
     <script>        
         document.addEventListener("DOMContentLoaded", function () {
-            //建立日期
+            function setClock(){
 
-            //取得秒數，分割為兩位數
-
-
-            //顯示圖片，對應秒數
-
-        });
-    </script>
-</head>
+                //建立日期
+                let d=new Date();
+                //取得秒數，分割為兩位數
+                let s=d.getSeconds();
+                // alert(s);   //47 取個位數:47%10=7,取十位數:47/10=parseInt(4,7)=4
+                let s1=parseInt(s/10);  //十位數
+                let s2=s%10;    //個位數
+                
+                //顯示圖片，對應秒數
+                // document.getElementById("picS1").src="WinImages/1.gif";
+                document.getElementById("picS1").src="WinImages/"+s1+".gif";    //ES5
+                document.getElementById("picS2").src=`WinImages/${s2}.gif`;     //ES6                
+            }
+                window.setInterval(setClock,1000);
+                setClock;   //立即執行
+            });
+            </script>
+            </head>
 <body> 
-    <img alt="" src="WinImages/0.gif" /><img alt="" src="WinImages/1.gif" />:<img alt="" src="WinImages/2.gif" /><img alt="" src="WinImages/3.gif" />
-    <!--
-    <img alt="" id="picH1" /><img alt="" id="picH2" />:<img alt="" id="picM1" /><img alt="" id="picM2" />:<img alt="" id="picS1" /><img alt="" id="picS2" />
-    -->
+    <!-- <img alt="" src="WinImages/0.gif" /><img alt="" src="WinImages/1.gif" />:<img alt="" src="WinImages/2.gif" /><img alt="" src="WinImages/3.gif" /> -->
+    
+    <img alt="" id="picH1" /><img alt="" id="picH2" />:
+    <img alt="" id="picM1" /><img alt="" id="picM2" />:
+    <img alt="" id="picS1" /><img alt="" id="picS2" />
+   
 
 </body>
 </html>

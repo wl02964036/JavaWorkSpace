@@ -5,11 +5,11 @@
     <title>02dynamicStyleImg.html</title>
     <style>
         .s {
-            filter: grayscale(1);  /*沒有任何色彩的黑白影像*/
+            filter: grayscale(1);  /* 沒有任何色彩的黑白影像: 1 or 100% */   
             
         }
         .n {
-            filter: grayscale(0);  /*顏色不變*/
+            filter: grayscale(0);  /* 顏色不變: 0 or 0% */
         }
     </style>
     <script>
@@ -23,6 +23,7 @@
 
             document.getElementById("idstar").className = "n";
         }
+        
         function mouseOut() {
             document.getElementById("idstar").className = "s";
         }

@@ -20,8 +20,9 @@
         }
 
         //取消事件氣泡bubbling(stopPropagation())
-        function divClick(nsEvent) {
-            window.alert("div");
+        function divClick() {
+            event.stopPropagation;
+            window.alert("div"); //<--就算觸發stopPropagation，也依舊會執行完
             
         }
 

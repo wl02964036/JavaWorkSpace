@@ -11,11 +11,15 @@
 
         function stopf() {
                 //window.clearTimeout-停止計時器            
-
+            window.clearTimeout(t);
         }
 
         //轉向連結到 http://iiiedu.org.tw
         //slide104,location.href-轉向連結到其它網址
+        function f(){
+            location.href="http://iiiedu.org.tw";
+        }
+        let t=window.setTimeout(f,2000);
 
         
     </script>

@@ -4,7 +4,10 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title>08eventObjectDemo.html</title>
     <script>
-        //在文件的contextmenu事件，取消預設的動作(preventDefault)
+        //在文件的contextmenu事件(滑鼠右鍵)，取消預設的動作(preventDefault)
+        document.addEventListener("contextmenu",function(){
+            event.preventDefault();
+        })
         
        
     </script>

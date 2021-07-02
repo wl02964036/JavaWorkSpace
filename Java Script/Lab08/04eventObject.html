@@ -9,8 +9,8 @@
         //回傳4 表示使用者按下滾輪，chrome 回傳1
         //回傳2 表示使用者按下右鍵，chrome 回傳2
         function IEmouseDown() {    //IE8以前是透過全域變數window.event來取用這個物件
-            alert(event.type);
-            alert(event.button);
+            alert(event.type);      //mousedown
+            alert(event.button);    //0
         }
 
 
@@ -20,21 +20,21 @@
         //回傳2 表示使用者按下右鍵，Fixefox及chrome 回傳2
         function FirefoxmouseDown(nsevent) {  //以event物件作為參數來使用
             //alert(nsevent);
-            alert(nsevent.type);
-            alert(nsevent.button);
+            alert(nsevent.type);    //mousedown
+            alert(nsevent.button);  //0
         }
       
 
         //W3C DOM 事件處理程序(IE9以上)
         document.addEventListener("DOMContentLoaded", function () {  
-            //document.getElementById("idmouse2").addEventListener("mousedown", mouseDown);  //事件繫結                               
+            // document.getElementById("idmouse2").addEventListener("mousedown", mouseDown);  //事件繫結                               
         });
 
 
         //JavaScript屬性事件處理程序(IE8以下)
-        //window.onload=function(){
-        //    document.getElementById("idmouse2").onmousedown = mouseDown;
-        //}   
+        window.onload=function(){
+           document.getElementById("idmouse2").onmousedown = mouseDown;
+        }   
         
     </script>
 </head>
