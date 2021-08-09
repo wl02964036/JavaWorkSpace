@@ -1,0 +1,10 @@
+<Context>
+
+  <Resource name="jdbc/iiihealth" 
+  			auth="Container" type="javax.sql.DataSource"
+               maxActive="20" maxIdle="5" maxWait="10000"
+               username="sa" password="eeit12907" 
+               driverClassName="com.microsoft.sqlserver.jdbc.SQLServerDriver"
+               url="jdbc:sqlserver://localhost:1433;databaseName=MidProject2"/>
+			
+</Context>
