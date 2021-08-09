@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery Lab17</title>
+    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="/lab17/js/lightbox2-2.11.3/lightbox2-2.11.3/dist/css/lightbox.css">
+    <link rel="stylesheet" href="/lab17/js/vegas/vegas.css">
+
+    <style>
+        img {
+            width: 400px;
+            height: 200px;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>plugins</h1>
+    </header>
+    <div id="container">
+        <!-- <a href="/Lab12/images/image1.png" data-lightbox="image-1" data-title="My caption"><img
+                src="/Lab12/images/image1.png" alt=""></a>
+        <hr>
+        <a href="/Lab12/images/image2.png" data-lightbox="roadtrip"><img src="/Lab12/images/image2.png" alt=""></a>
+        <a href="/Lab12/images/image3.png" data-lightbox="roadtrip"><img src="/Lab12/images/image3.png" alt=""></a>
+        <a href="/Lab12/images/image4.png" data-lightbox="roadtrip"><img src="/Lab12/images/image4.png" alt=""></a> -->
+
+        <button id="btn">sweetalert</button>
+        <hr>
+        <table id="table_id" class="display">
+            <thead>
+                <tr>
+                    <th>Column 1</th>
+                    <th>Column 2</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Row 1 Data 1</td>
+                    <td>Row 1 Data 2</td>
+                </tr>
+                <tr>
+                    <td>Row 2 Data 1</td>
+                    <td>Row 2 Data 2</td>
+                </tr>
+                <tr>
+                    <td>Row 1 Data 1</td>
+                    <td>Row 1 Data 2</td>
+                </tr>
+                <tr>
+                    <td>Row 2 Data 1</td>
+                    <td>Row 2 Data 2</td>
+                </tr>
+                <tr>
+                    <td>Row 1 Data 1</td>
+                    <td>Row 1 Data 2</td>
+                </tr>
+                <tr>
+                    <td>Row 2 Data 1</td>
+                    <td>Row 2 Data 2</td>
+                </tr>
+                <tr>
+                    <td>Row 1 Data 1</td>
+                    <td>Row 1 Data 2</td>
+                </tr>
+                <tr>
+                    <td>Gary Data 1</td>
+                    <td>Row 2 Data 2</td>
+                </tr> <tr>
+                    <td>Row 1 Data 1</td>
+                    <td>Row 1 Data 2</td>
+                </tr>
+                <tr>
+                    <td>Row 2 Data 1</td>
+                    <td>Row 2 Data 2</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <script src="/jquery-3.6.0.js"></script>
+    <script src="/lab17/js/lightbox2-2.11.3/lightbox2-2.11.3/dist/js/lightbox.js"></script>
+    <script src="/lab17/js/vegas/vegas.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="//cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"> </script>
+
+    <script>
+        $(function () {
+            $('#table_id').DataTable();
+
+            $('#btn').on('click', function () {
+                Swal.fire({
+                    // position: 'top-end',
+                    icon: 'success',
+                    title: 'Your work has been saved',
+                    showConfirmButton: false,
+                    timer: 1500
+                })
+            })
+            $("#example, body").vegas({
+                slides: [
+                    { src: "/lab12/images/image1.jpg" },
+                    { src: "/lab12/images/image2.jpg" },
+                    { src: "/lab12/images/image3.jpg" },
+                    { src: "/lab12/images/image4.jpg" }
+                ],
+                transition: ['blur2', 'burn', 'flash', 'zoomIn'],
+                delay: 2000
+            });
+
+
+
+
+        })
+    </script>
+</body>
+
+</html>

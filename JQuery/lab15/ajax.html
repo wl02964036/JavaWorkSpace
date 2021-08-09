@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery Lab15</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <header>
+        <h1>ajax</h1>
+    </header>
+    <div id="container">
+        <button id="btn">AJAX</button>
+        <ul id="data">
+            <li></li>
+        </ul>
+    </div>
+    <script src="/jquery-3.6.0.js"></script>
+    <script>
+        $(function(){
+        /*
+            $.jax({
+                url:"",     //url位置
+                type:"",    //get or post
+                data:{},    //要輸入的資料
+                sucess:function(){},    //成功後要執行的函數
+                error:function(){}      //失敗後要執行的函數
+            })
+        */
+        $("#btn").on("click",function(){
+        $.ajax({
+            url:"/lab15/text.json",
+            type:"get",
+            success:function(response){
+                console.log(response)
+                $.each(response,function(index,ele){
+                    console.log(ele)
+                    $("#data").append(
+                        `
+                        <li>${ele.序號}</li>
+                        <li>${ele.機構名稱}</li>
+                        <li>${ele.地址}</li>
+                        `
+                    )
+                })
+            },
+            error:function(xhr){
+                alert(`發生錯誤${xhr.state},${xhr.statusText}`)
+            }
+        })
+
+        })
+
+        })
+    </script>
+</body>
+</html>

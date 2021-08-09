@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery Lab11</title>
+    <link rel="stylesheet" href="/style.css">
+    <style>
+        .circle {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            margin: 5px;
+            display: inline-block;
+        }
+
+        .target {
+            border: 1px solid black;
+            height: 100px;
+            width: 100px;
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+
+        .wrapper {
+            width: 800px;
+            height: 400px;
+            background-color: lightgray;
+            margin: 0 auto;     /*左右置中*/
+            position: relative;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>CSS</h1>
+    </header>
+    <div id="container">
+        <div class="wrapper">
+            <div class="target"></div>
+        </div>
+        <br>
+        <input type="text" id="input">  <!--為了知道上下左右的keyCode是多少-->
+        <button id="extend">extend</button>
+        <div class="circle" style="background: red;"></div>
+        <div class="circle" style="background: orange;"></div>
+        <div class="circle" style="background: yellow;"></div>
+        <div class="circle" style="background: green;"></div>
+        <div class="circle" style="background: blue;"></div>
+        <div class="circle" style="background: blueviolet;"></div>
+        <div class="circle" style="background: purple;"></div>
+    </div>
+    <script src="/jquery-3.6.0.js"></script>
+    <script>
+        $(function () {
+            /* 
+            .css("")取css值
+            .css("","")設css值
+            .css({
+                "",""
+                "",""
+                "",""
+            })
+            */
+
+            //上下左右(38,40,37,39)
+            document.onkeyup = function move() {
+                let move=25;
+                switch (event.keyCode) {
+                    case 38:
+                        console.log("up")
+                        if (parseInt($(".target").css("top")) > 0) {
+                            $(".target").css({
+                                // top:"-=20",
+                                top: "-=" + move,
+                                background: "lightgreen"
+                            })
+                        } else {
+                            $(".target").css("top", 0)
+                        }
+                        break;
+
+                    case 40:
+                        console.log("down")
+                        if (parseInt($(".target").css("top")) < 300) {
+                            $(".target").css({
+                                // top:"+=20",
+                                top: "+=" + move,
+                                background: "lightblue"
+                            })
+                        } else {
+                            $(".target").css("top", 300)
+                        }
+                        break;
+
+                    case 37:
+                        console.log("left")
+                        if (parseInt($(".target").css("left")) > 0) {
+                            $(".target").css({
+                                left: "-=" + move,
+                                background: "pink"
+                            })
+                        } else {
+                            $(".target").css("left", 0)
+                        }
+                        break;
+
+                    case 39:
+                        console.log("right")
+                        if (parseInt($(".target").css("left")) < 700) {
+                            $(".target").css({
+                                left: "+=" + move,
+                                background: "greenyellow"
+                            })
+                        } else {
+                            $(".target").css("left", 700)
+                        }
+                        break;
+                }
+            }
+
+            $("#input").keyup(function () {
+                console.log(event.keyCode)
+            })
+            $("#extend").on("click", function () {
+                $(".circle").css("width", "+=5")
+            })
+            $(".circle").on("click", function () {
+                let color = $(this).css("background");
+                console.log(color);
+                $(".target").css("background", color)
+            })
+        })
+    </script>
+</body>
+
+</html>

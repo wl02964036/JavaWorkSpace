@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/style.css">
+    <style>
+        p{
+            width: 500px;
+            padding: 10px;
+            margin: 10px;
+            border: 2px solid black;
+            background-color: lightgreen;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>width</h1>
+    </header>
+    <div id="container">
+        <p id="para1"></p>
+        <p id="target"></p>
+        
+    </div>
+    <script src="/jquery-3.6.0.js"></script>
+    <script>
+        $(function () {
+            let p=$("#para1")
+            $("#target").text(`innerWidth:${p.innerWidth()},
+            outterWidth:${p.outerWidth()},
+            outerWidth(true):${p.outerWidth(true)}`);
+        })
+        console.log($("#target").offset());
+
+        $("#target").offset({   //上移100px，左移100px
+            top:100,
+            left:100
+        })
+    </script> 
+</body>
+</html>

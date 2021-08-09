@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery Lab14</title>
+    <link rel="stylesheet" href="/style.css">
+    <style>
+        .box{
+            /* 做動畫一定要加屬性 */
+            position: relative;
+            width: 100px;
+            height: 100px;
+            background-color: lightgreen;
+            top: 150;
+            left: 150;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>animate</h1>
+    </header>
+        <div id="container">
+            <hr>
+            <button id="moveRight">move right</button>
+            <button id="moveLeft">move left</button>
+            <button id="moveAround">move around</button>
+            <button id="moveSwing">move swing</button>
+            <div class="box"></div>
+        </div>
+    <script src="/jquery-3.6.0.js"></script>
+    <script>
+        $(function(){
+            $("#moveRight").on("click",function(){
+                $(".box").animate({
+                    left:500,
+                    height:300,
+                    width:300,
+                    "border-radius":"50%",
+                    // "background=color":"pink"
+                })
+            })
+
+            $("#moveLeft").on("click",function(){
+                $(".box").animate({
+                    left:0,
+                    height:100,
+                    width:100,
+                    "border-radius":"0"
+                })
+            })
+
+            $("#moveAround").on("click",function(){
+                let box=$(".box")
+                box.animate({
+                    left:300,
+                },1000).animate({
+                    top:300
+                },500).animate({
+                    left:0,
+                    top:300
+                },30).animate({
+                    left:0,
+                    top:0
+                },1500)
+
+            })
+
+            $("#moveSwing").on("click",function(){
+                $(".box").animate({
+                    left:500,
+                    top:500
+                },{
+                    duration:1000,
+                    specialEasing:{
+                        top:"linear",   //等速
+                        left:"swing"
+                    }
+                }).animate({
+                    left:0,
+                    top:0
+                },{
+                    duration:500,
+                    specialEasing:{
+                        top:"linear",
+                        left:"swing"
+                    }
+                })
+            })
+
+        })
+    </script>
+</body>
+</html>

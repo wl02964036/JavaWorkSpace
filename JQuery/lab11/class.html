@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery Lab11</title>
+    <link rel="stylesheet" href="/style.css">
+    <style>
+        .box {
+            width: 200px;
+            height: 200px;
+            background-color: lightgreen;
+            transition: .4s;
+            /*每0.4秒慢慢轉變*/
+        }
+
+        .box.active {
+            background-color: pink;
+            border-radius: 50%;
+        }
+        img{
+            width: 200px;
+            height: 200px;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>class</h1>
+    </header>
+    <div id="container">
+        <button id="addClass">add Class</button>
+        <button id="removeClass">remove class</button>
+        <button id="toggleClass">toggle class</button>
+        <hr>
+        <div class="box"></div>
+        <hr>
+        <button id="getProp">get Prop</button>
+        <button id="setProp">set Prop</button>
+        <br>
+        <input type="checkbox" id="checkbox">同意條款
+        <br>
+        <button id="confirm" disabled>confirm</button>
+        <hr>
+        <img src="/lab08/8 letters.png" id="img1" alt="8 letters">
+        <button id="getAttr">get Attr</button>
+        <button id="setAttr">set Attr</button>
+        <br>
+        <a href="https://jquery.com/" id="link1" title="jQuery">jQuery.com</a>
+        <button id="setLink">set link</buttom>
+    </div>
+    <script src="/jquery-3.6.0.js"></script>
+    <script>
+        $(function () {
+            //addClass
+            $("#addClass").on("click", function () {
+                $(".box").addClass("active")
+            })
+            $("#removeClass").on("click", function () {
+                $(".box").removeClass("active")
+            })
+            $("#toggleClass").on("click", function () {
+                $(".box").toggleClass("active")
+            })
+
+            //prop()    回傳布林值
+            $("#getProp").on("click",function(){
+               console.log($("#checkbox").prop("checked"));
+            })
+            $("#setProp").on("click",function(){
+                $("#checkbox").prop("checked",true);
+            })
+            $("#checkbox").on("click",function(){
+                let checked=$(this).prop("checked");
+                console.log(checked);
+                if(checked){
+                    $("#confirm").prop("disabled",false);
+                }else{
+                    $("#confirm").prop("disabled",true);
+                }
+                //取代上面的if else
+                // $("#confirm").prop("disabled",!$(this).prop("checked"))
+            })
+
+            // 補充: var imgurl=$(this).find('img').attr('src');
+            //this: HTML元素物件    //${this}: jQuery物件
+            //attr()  尋找標籤內的屬性      //find()    尋找標籤名  //attr({}) 取代標籤內的屬性
+            $("#getAttr").on("click",function(){
+                let src=$("#img1").attr("src"),alt=$("#img1").attr("alt");
+                console.log(`src: ${src},alt: ${alt}`)
+                $("#img1").attr({
+                    src:"/lab08/8 letters.png",
+                    alt:"8 letters"
+                })
+            })
+            $("#setAttr").on("click",function(){
+                $("#img1").attr({
+                    src:"./champion.png",
+                    alt:"champion"
+                })
+            })
+            $("#setLink").on("click",function(){
+                $("#link1").attr({
+                    href:"https://www.w3schools.com/",
+                    title:"w3schools"
+                }).text("w3school.com")
+            })
+        })
+
+
+        // document.getElementById()//效能最好
+        // document.querySelector()//效能次之
+        // $("")//要先到lib，所以最慢
+
+
+    </script>
+</body>
+
+</html>

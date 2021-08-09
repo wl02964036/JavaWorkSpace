@@ -37,6 +37,13 @@
             <div class="div-input">
                 <input type="text" id="input1" class="card-input1" maxlength="4">
             </div>
+            <hr>
+            <select name="" id="select">
+                <option value="TPE">台北市</option>
+                <option value="NTPC">新北市</option>
+                <option value="TYN">桃園市</option>
+            </select>
+            <div id="target"></div>
         </form>
     </div>
     <script src="/jquery-3.6.0.js"></script>
@@ -63,6 +70,11 @@
                     //往上到div,往後一個兄弟層找隔壁的div，再從div找下一個input
                     $(this).parent().next().find(":input").focus();
                 }
+            })
+            $("#select").change(function(){
+                let val=$(this).val();
+                console.log(val);
+                $("#target").text(val);
             })
         })
     </script>

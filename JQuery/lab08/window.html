@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery Lab08</title>
+    <link rel="stylesheet" href="/style.css">
+    <style>
+        .resize{
+            width: 400px;
+            height: 300px;
+            position: absolute;
+        }
+        img{
+            width: 400px;
+            height: 300px;
+            position: absolute;
+            float: left; 
+        }
+        .con{
+            width: 100px;
+            height: 100px;
+            overflow: auto; /*溢出內容*/
+        }
+        .box{
+            width: 200px;
+            height: 200px;
+            background-color: lightseagreen;
+        }
+        body{
+            /* view height 螢幕可視範圍高度的百分比 */
+            height: 300vh;
+        }
+        .progress{
+            background-color: lightgray;
+            width: 100%;
+            height: 30px;
+            top:0;
+            left: 0;
+            position: fixed;
+        }
+        .progress-percent{  /*body的高-瀏覽器的高，計算出滾動事件的百分比*/
+            height: 30px;
+            background-color: lightgreen;
+            width: 0%;
+        }
+        #btn{
+            right: 10px;
+            bottom: 10px;
+            position: fixed;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Window</h1>
+    </header>
+    <div class="progress">
+        <div class="progress-percent"></div>
+    </div>
+    <div id="container">
+        <div class="con">
+            <div class="box"></div>
+        </div>
+        
+        <br>
+        <div class="resize">
+            <img src="/lab08/8 letters.png" alt="">
+        </div>
+    </div>
+    <button id="btn">go top</button>
+    <script src="/jquery-3.6.0.js"></script>
+    <script>
+        $(function(){
+            //回到頂部
+            $("#btn").on("click",function(){
+                $(window).scrollTop(0);
+            })
+
+            let pageH=$("body").height()
+            let winH=$(window).height()
+            $(window).scroll(function(){
+                let winTop=$(this).scrollTop();
+                let scrollPercent=Math.round((winTop/(pageH-winH))*100)+"%"
+                $(".progress-percent").css("width",scrollPercent);
+            })
+
+            $(".con").scroll(function(){
+                console.log(`top:${$(this).scrollTop()},left:${$(this).scrollLeft()}`)
+            })
+
+            //圖片置中
+            resize_img();
+            $(window).resize(resize_img);
+            function resize_img(){
+                let winH=$(window).height();
+                let winW=$(window).width();
+                let divH=$(".resize").height();
+                let divW=$(".resize").width();
+                let left=(winW-divW)/2;
+                let top=(winH-divH)/2;
+                $(".resize").css({  //兩組計算
+                    "left":left,
+                    "top":top
+                })
+            }
+        })
+    </script>
+</body>
+</html>

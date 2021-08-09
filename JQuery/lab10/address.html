@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery Lab10</title>
+    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+    <style>
+        .input{
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>address book</h1>
+    </header>
+    <div id="container">
+<div id="container">
+        <div class="input">
+            <input type="text" id="name" placeholder="請輸入姓名">
+        </div>
+        <div class="input">
+            <input type="text" id="phone" placeholder="請輸入電話">
+        </div>
+        <div class="input">
+            <input type="text" id="address" placeholder="請輸入地址">
+        </div>
+        <div class="input" >
+            <button id="add"> <i class="fas fa-user-plus"></i> </button>
+        </div>
+        <table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Phone</th>
+                    <th>Address</th>
+                </tr>
+            </thead>
+            <tbody>
+
+            </tbody>
+        </table>
+    </div>
+    <script src="/jquery-3.6.0.js"></script>
+    <script>
+        $(function(){
+            $("#add").on("click",function(){
+                let name=$("#name").val(),
+                phone=$("#phone").val(),
+                address=$("#address").val()
+
+                console.log(name+","+phone+","+address)
+                let content=
+                `
+                <tr>
+                    <td>${name}</td>
+                    <td>${phone}</td>
+                    <td>${address}</td>
+                    <td><button id="del"><i class="fas fa-user-minus"></i></button></td>
+                </tr>
+                `
+                $("tbody").append(content);
+                
+                //清空剛剛打得值
+                $("#name").val("");
+                $("#phone").val("");
+                $("#address").val("");
+            })
+
+            $("tbody").on("click","#del",function(){
+                $(this).closest("tr").remove();
+            })
+
+        })
+    </script>
+</body>
+</html>

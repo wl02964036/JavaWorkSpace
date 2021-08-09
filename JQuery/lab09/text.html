@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery Lab10</title>
+    <link rel="stylesheet" href="/style.css">
+    <style>
+
+
+    </style>
+</head>
+<body>
+    <header>
+        <h1>text</h1>
+    </header>
+    <div id="container">
+        <h3 id="source">Hello jQuery</h3>
+        <h3 id="target"></h3>
+        <button id="getText">get Text</button>
+        <button id="setText">set Text</button>
+        <!--<b>粗體</b>-->
+        <p>
+            <b>Click</b>Click to change the html<span>html</span>
+        </p>
+        <button id="setHtml">set Html</button>
+    </div>
+    <script src="/jquery-3.6.0.js"></script>
+    <script>
+        $(function () {
+            //text()
+            $("#getText").on("click",function(){
+                let text=$("#source").text();
+                $("#target").text(text);    //id=target跟內文 變成 id="source"跟Hello jQuery
+            })
+            $("#setText").on("click",function(){
+                $("#source").text("set Text jQuery");
+            })
+
+            //html
+            $("p").one("click",function(){  //直接變code
+                let html=$("p").html()
+                $(this).text(html)
+            })
+
+            $("#setHtml").on("click",function(){    //p裡的內文全變
+                $("p").html("<h1>set Html</h1>")
+            })
+
+        })
+    </script> 
+</body>
+</html>

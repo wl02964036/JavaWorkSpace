@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery Lab10</title>
+    <link rel="stylesheet" href="/style.css">
+    <style>
+        table{
+            border: 2px solid black;
+        }
+        tr td{
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>append</h1>
+    </header>
+    <div id="container">
+        <button id="append">append Data</button>
+        <button id="prepend">prepend Data</button>
+        <button id="appendTo">appendTo Data</button>
+        <button id="prependTo">prependTo Data</button>
+        <button id="after">After Data</button>
+        <button id="insertAfter">insertAfter Data</button>
+        <button id="before">before Data</button>
+        <button id="insertBefore">insertBefore Data</button>
+        <button id="empty">emtpy</button>
+        <button id="remove">remove</button>
+        <hr>
+        <table>
+            <tbody>
+                <tr id="move">
+                    <td>Gary</td>
+                    <td>garylee@iii.org.tw</td>
+                    <td>034257387</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <script src="/jquery-3.6.0.js"></script>
+    <script>
+        let i=1;
+        //append
+        $("#append").on("click",function(){
+            let content=
+            `
+            <tr>
+                <td>${i} Test</td>
+                <td>Test@iii.org.tw</td>
+                <td>0123456789</td>
+            </tr>
+            `
+            $("tbody").append(content);
+            i++;
+        })
+        //prepend
+        $("#prepend").on("click",function(){
+            let content=
+            `
+            <tr>
+                <td>${i} Test</td>
+                <td>Test@iii.org.tw</td>
+                <td>0123456789</td>
+            </tr>
+            `
+            $("tbody").prepend(content);
+            i++;
+        })
+
+        //Dom要先寫好才能移動      //預設好的資料跑到對下面
+        $("#appendTo").on("click",function(){
+            $("#move").appendTo("tbody")
+        })
+
+        //預設好的資料跑到最上面
+        $("#prependTo").on("click",function(){
+            $("#move").prependTo("tbody")
+        })
+
+        //Dom要先寫好才能移動
+        //緊接在所指定的後面
+        $("#after").on("click",function(){
+            $("#move").after(
+            `
+            <tr>
+                <td>${i} Test</td>
+                <td>Test@iii.org.tw</td>
+                <td>0123456789</td>
+            </tr>
+            `
+            )
+            i++;
+        })
+        $("#insertAfter").on("click",function(){
+            $(
+            `
+            <tr>
+                <td>${i} Test</td>
+                <td>Test@iii.org.tw</td>
+                <td>0123456789</td>
+            </tr>
+            `
+            ).insertAfter("#move")
+            i++;
+        })
+
+        //Dom要先寫好才能移動
+        //緊接在所指定的前面
+        $("#before").on("click",function(){
+            $("#move").before(
+                `
+            <tr>
+                <td>${i} Test</td>
+                <td>Test@iii.org.tw</td>
+                <td>0123456789</td>
+            </tr>
+            ` 
+            );
+            i++;
+        })
+        $("#insertBefore").on("click",function(){
+            $(
+                `
+            <tr>
+                <td>${i} Test</td>
+                <td>Test@iii.org.tw</td>
+                <td>0123456789</td>
+            </tr>
+            `  
+            ).insertBefore("#move");
+            i++;
+        })
+
+
+        //empty()
+        //清空內容(tr、td)，tbody還在
+        $("#empty").on("click",function(){
+            $("tbody").empty()
+        })
+
+        //remove()
+        //移除所有(tr、td、tbody)，tbody也被移除
+        $("#remove").on("click",function(){
+            $("tbody").remove()
+        })
+    </script>
+</body>
+</html>

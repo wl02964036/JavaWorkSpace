@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery Lab14</title>
+    <link rel="stylesheet" href="/style.css">
+    <style>
+        .box{
+            width: 200px;
+            height: 200px;
+            background-color: lightgreen;
+        }
+        div.show{
+            background-color: lightblue;
+            width: 80px;
+            margin: 3px;
+            display: none;
+            float: left;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>fade</h1>
+    </header>
+    <div id="container">
+        <button id="fadeOut">Fade out</button>
+        <button id="fadeIn">Fade In</button>
+        <button id="fadeToggle">Fade Toggle</button>
+        <button id="slideUp">Slide Up</button>
+        <button id="slideDown">Slide Down</button>
+        <button id="slideToggle">Slide Toggle</button>
+        <hr>
+        <div class="box"></div>
+        <hr>
+        <button id="show">show</button>
+        <button id="hide">hide</button>
+        <div class="show">Hello,</div>
+        <div class="show">How</div>
+        <div class="show">are</div>
+        <div class="show">you?</div>
+    </div>
+    <!-- jQuery 使用動畫都要注意 你的library 是不是完整版 不要使用slim -->
+    <script src="/jquery-3.6.0.js"></script>
+    <script>
+        $(function(){
+            $("#show").on("click",function(){
+                $("div.show").first().show("fast",function showNext(){
+                    $(this).next("div").show("fast",showNext);
+                })
+            })
+            $("#hide").on("click",function(){
+                $("div.show").hide(1000);
+            })
+
+            //淡入淡出
+            $("#fadeOut").on("click",function(){
+                $(".box").fadeOut(1000,function(){
+                    $("#fadeOut").text("it's gone")
+                })
+            })
+
+            $("#fadeIn").on("click",function(){
+                $(".box").fadeIn(1000,function(){
+                    $("#fadeIn").text("Fade Out")
+                })
+            })
+
+            $("#fadeToggle").on("click",function(){
+                $(".box").fadeToggle(1000)
+            })
+
+            $("#slideUp").on("click",function(){
+                $(".box").slideUp(1000)
+            })
+
+            $("#slideDown").on("click",function(){
+                $(".box").slideDown(1000)
+            })
+
+            $("#slideToggle").on("click",function(){
+                $(".box").slideToggle(1000)
+            })
+        })
+    </script>
+</body>
+</html>

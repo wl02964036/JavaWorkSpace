@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery Lab10</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <header>
+        <h1>val</h1>
+    </header>
+    <div id="container">
+        <input type="number" id="num1">
+        <select name="" id="calculate">
+            <option value="+">+</option>
+            <option value="-">-</option>
+            <option value="*">*</option>
+            <option value="/">/</option>
+        </select>
+        <input type="number" id="num2">
+        <button id="result">=</button>
+        <input type="text" id="show" readonly>
+    </div>
+    <script src="/jquery-3.6.0.js"></script>
+    <script>
+        $(function(){
+            $("#result").on("click",function(){
+                let num1=Number($("#num1").val())
+                let num2=Number($("#num2").val())
+                let calculate=$("#calculate").val()
+                let result=0
+
+                switch(calculate){
+                    case"+":
+                        result=num1+num2;
+                        break;
+                    case"-":
+                        result=num1-num2;
+                        break;
+                    case"*":
+                        result=num1*num2;
+                        break;
+                    case"/":
+                        result=num1/num2;
+                        break;
+                }
+                $("#show").val(result);
+        
+            })
+        })
+    </script>
+</body>
+</html>

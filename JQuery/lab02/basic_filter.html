@@ -101,32 +101,32 @@
             // $("td:eq(4)").css("background","pink");
             // $("td:even").css("background","pink");
             // $("td:odd").css("background","pink");
-            // $("td:lt(4)").css("background","pink");     //lt(n):<n  小於4都變顏色
-            // $("td:gt(6)").css("background","pink");     //gt(n):>n  小於4都變顏色
+            // $("td:lt(4)").css("background","pink");     //lt(n):<n  小於4都變顏色(less then)
+            // $("td:gt(6)").css("background","pink");     //gt(n):>n  小於4都變顏色(greater then)
             // $("td:first").css("background","pink");
             // $("td:last").css("background","pink");
-            // $("td:not(.not").css("background","pink");
+            // $("td:not(.not)").css("background","pink");
 
             //content filter
             // $("p:contains('Hello')").css("background","lightgreen");    //內文過濾器
             // $("p:has(span)").css("background","pink");      //內文過濾器
-            $("p:empty").text("empty text");    //不受內文選擇器效果影響
+            // $("p:empty").text("empty text");    //不受內文選擇器效果影響
             // $("p:parent").css("background","greenyellow");  //只要有文字，就會選到
-            $("p:empty").text("empty text");    //不受內文選擇器效果影響
+            // $("p:empty").text("empty text");    //不受內文選擇器效果影響
 
             //child filter  //父元素下的子元素
-            $("tr td:first-child").css("background","lightgreen");
-            $("tr td:last-child").css("background","lightblue");
-            $("tr td:nth-child(2)").css("background","pink");   //nth-child(n) n從一開始
+            // $("tr td:first-child").css("background","lightgreen");
+            // $("tr td:last-child").css("background","lightblue");
+            // $("tr td:nth-child(2)").css("background","pink");   //nth-child(n) n從一開始
             // $("tr td:only-child").text(":only-child");
 
             //filtering
             //:eq() 效果跟 .eq() 一樣，而且都是n從0開始
-            $("li").eq(4).css("background","pink");
-            $("li").first().css("background","pink");
-            $("li").last().css("background","pink");
-            $("li").not(".not").css("background","lightblue");
-            $("li").has("span").css("background","greenyellow");
+            // $("li").eq(4).css("background","pink");
+            // $("li").first().css("background","pink");
+            // $("li").last().css("background","pink");
+            // $("li").not(".not").css("background","lightblue");
+            // $("li").has("span").css("background","greenyellow");
             $("li").on("click",function() {
                 if($(this).is("li:odd")){     //從0開始
                     $(this).text("is(:odd)")

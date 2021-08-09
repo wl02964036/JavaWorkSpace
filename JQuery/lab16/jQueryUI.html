@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery Lab16</title>
+    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="/lab16/jquery-ui-1.12.1/jquery-ui-1.12.1/jquery-ui.css">
+    <style>
+        #feedback {
+            font-size: 1.4em;
+        }
+
+        #selectable .ui-selecting {
+            background: #FECA40;
+        }
+
+        #selectable .ui-selected {
+            background: #F39814;
+            color: white;
+        }
+
+        #selectable {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            width: 60%;
+        }
+
+        #selectable li {
+            margin: 3px;
+            padding: 0.4em;
+            font-size: 1.4em;
+            height: 18px;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>jQuery UI</h1>
+    </header>
+    <div id="container">
+        <p>Date: <input type="text" id="datepicker"></p>
+        <ol id="selectable">
+            <li class="ui-widget-content">Item 1</li>
+            <li class="ui-widget-content">Item 2</li>
+            <li class="ui-widget-content">Item 3</li>
+            <li class="ui-widget-content">Item 4</li>
+            <li class="ui-widget-content">Item 5</li>
+            <li class="ui-widget-content">Item 6</li>
+            <li class="ui-widget-content">Item 7</li>
+        </ol>
+    </div>
+    <script src="/jquery-3.6.0.js"></script>
+    <script src="/lab16/jquery-ui-1.12.1/jquery-ui-1.12.1/jquery-ui.js"></script>
+    <script>
+        $(function () {
+            $("#datepicker").datepicker();
+            $("#selectable").selectable();
+
+
+
+        })
+    </script>
+</body>
+
+</html>

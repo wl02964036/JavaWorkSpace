@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery Lab14</title>
+    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <style>
+        .box{
+            width: 200px;
+            height: 200px;
+            background-color: lightgreen;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Animate CSS</h1>
+    </header>
+    <div id="container">
+        <h1 class="animate__animated animate__flash">An animated element</h1>
+        <button class="btn">bounce</button>
+        <button class="btn">flash</button>
+        <button class="btn">pulse</button>
+        <button class="btn">rubberBand</button>
+        <button class="btn">shakeX</button>
+        <button class="btn">shakeY</button>
+        <button class="btn">headShake</button>
+        <button class="btn">tada</button>
+        <hr>
+        <div class="box"></div>
+    </div>
+    <script src="/jquery-3.6.0.js"></script>
+    <script>
+        $(function () {
+            $(".btn").on("click",function(){
+                // animateCSS(".box","bounce")
+                let animate=$(this).text();
+                animateCSS(".box",animate)
+            })
+
+            const animateCSS = (element, animation, prefix = 'animate__') =>
+                // We create a Promise and return it
+                new Promise((resolve, reject) => {
+                    const animationName = `${prefix}${animation}`;
+                    const node = document.querySelector(element);
+
+                    node.classList.add(`${prefix}animated`, animationName);
+
+                    // When the animation ends, we clean the classes and resolve the Promise
+                    function handleAnimationEnd(event) {
+                        event.stopPropagation();
+                        node.classList.remove(`${prefix}animated`, animationName);
+                        resolve('Animation ended');
+                    }
+
+                    node.addEventListener('animationend', handleAnimationEnd, { once: true });
+                });
+
+
+
+        })
+    </script>
+</body>
+
+</html>

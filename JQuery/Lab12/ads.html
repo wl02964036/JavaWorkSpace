@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery Lab12</title>
+    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+    <style>
+        .wrap{
+            width: 800px;
+            height: 400px;
+            background-color: black;
+            margin: 0 auto;
+            position: relative;
+            overflow: hidden;
+        }
+        .slide-img{
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            width: 3200px;
+            /* 水平排列  */
+            display: flex; 
+            position: absolute;
+            /* left: -800px; */
+        }
+        .slide-img li{
+            width: 800px;
+            height: 400px;
+            /* flex裡的數值可以單獨拉出來改 */
+            /* flex-grow:伸展比例 flex-shrink:壓縮比例 flex-basis:額外剩餘比例 */
+            flex: 1 0 0;
+        }
+        .slide-img li img{
+            width: 100%;
+            height: 100%;
+            /* 控制元素內容調入大小，調整比例 */
+            object-fit: cover;
+        }
+        .pages{
+            /* 先清掉原本可能存在的數值 */
+            margin: 0;
+            padding: 0;
+            left: 0;
+            list-style: none;
+            position: absolute;
+            bottom: 10px;
+            /* 水平排列  */
+            display: flex;
+            width: 100%;
+            /*水平置中*/
+            justify-content: center;
+        }
+        .pages li{
+            border:1px solid white;
+            width: 30px;
+            height: 10px;
+            /* border-radius: 50%; */
+            margin: 0 5px;
+            cursor: pointer;
+        }
+        a.slide-arrow{
+            position: absolute;
+            /* background-color: red; */
+            z-index: 10;
+            width: 40px;
+            height: 100%;
+            font-size: 36px;
+            display: flex;
+            /* 內文對齊置中 */
+            justify-content: center;
+            /* 物件所有對齊置中 */
+            align-items: center;
+            color: white;
+            /* 透明度 */
+            opacity: .6;
+            cursor: pointer;
+        }
+        .right{
+            right: 0;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Ads Slide</h1>
+    </header>
+    <div id="container">
+        <!-- 顯示畫面，決定要看的範圍 -->
+        <div class="wrap">
+            <a class="slide-arrow" id="slidePrev"><i class="fas fa-arrow-left"></i></a>
+            <a class="slide-arrow right" id="slideNext"><i class="fas fa-arrow-right"></i></a>
+            <ul class="slide-img" id="slide-img">
+                <li><img src="/Lab12/images/image1.png" alt="view1"></li>
+                <li><img src="/Lab12/images/image2.png" alt="view2"></li>
+                <li><img src="/Lab12/images/image3.png" alt="view3"></li>
+                <li><img src="/Lab12/images/image4.png" alt="view4"></li>
+            </ul>
+            <ul class="pages" id="pages">
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+            </ul>
+        </div>
+    </div>
+    <script src="/jquery-3.6.0.js"></script>
+    <script>
+        $(function(){
+            let index=0;
+            let slideMove=0;
+            $("#pages li").eq(0).css("background","white")
+            $("#pages li").on("mouseover",function(){
+                // console.log("mouseover");
+
+                // 1.第一張圖移動
+                $("#slide-img").css("left","-800px")
+
+                // 2.第n張圖移動
+                //index() 取索引值
+                // let index=$(this).index();
+                index=$(this).index();
+                //console.log(index);
+                // let slideMove=0-index*800;
+                slideMove=0-index*800;
+                $("#slide-img").css("left",slideMove)
+
+                //3.換頁換色
+                $(this).css("background","white")
+                .siblings().css("background","transparent")
+            })
+
+            //4.左右移動
+            let slideCount=$("#slide-img li").length
+            // console.log(slideCount);
+
+            $("#slideNext").on("click",function(){
+                // 把上一個function的index註解，把index從區域變數變成全域變數
+                index++;
+
+                if(index>=slideCount){
+                    index=0;
+                }
+                // 把上一個function的slideMove註解，把slideMove從區域變數變成全域變數
+                let slideMove=0-index*800;
+                // $("#slide-img").css("left",slideMove)
+                // //$(this)指向不一樣，所以改成$("#pages li")，然後搭配eq(index)
+                // $("#pages li").eq(index).css("background","white")
+                // .siblings().css("background","transparent")
+                moveImg();
+            })
+
+            $("#slidePrev").on("click",function(){
+                index--;
+                if(index<0){
+                    index=slideCount-1;
+                }
+                let slideMove=0-index*800;
+                // $("#slide-img").css("left",slideMove)
+                // $("#pages li").eq(index).css("background","white")
+                // .siblings().css("background","transparent")
+                moveImg();
+            })
+
+            function moveImg(){
+                let slideMove=0-index*800;
+                $("#slide-img").css("left",slideMove)
+                $("#pages li").eq(index).css("background","white")
+                .siblings().css("background","transparent")
+            }
+
+            setInterval(autoImg,2000);
+            function autoImg(){
+                index++;
+
+                if(index>=slideCount){
+                    index=0;
+                }
+                moveImg();
+            }
+        })
+    </script>
+</body>
+</html>

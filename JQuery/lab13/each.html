@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>kQuery Lab13</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <header>
+        <h1>each</h1>
+    </header>
+    <div id="container">
+        <table>
+            <tr>
+                <td>11</td>
+                <td>22</td>
+                <td>33</td>
+            </tr>
+            <tr>
+                <td>11</td>
+                <td>22</td>
+                <td>33</td>
+            </tr>
+            <tr>
+                <td>11</td>
+                <td>22</td>
+                <td>33</td>
+            </tr>
+
+        </table>
+            <button class="btn" data-age="36" data-team="Lakers" data-name="Leborn">Leborn James</button>
+            <button class="btn" data-age="32" data-team="Warriors" data-name="Curry">Steven Curry</button>
+            <div class="target"></div>
+    </div>
+    <script src="/jquery-3.6.0.js"></script>
+    <script>
+        $(function(){   //講義100左右
+            //data()    //不想把資料丟進，直接储存在程式碼裡面
+            $(".btn").on("click",function(){
+                let age=$(this).data("age"),team=$(this).data("team"),name=$(this).data("name");
+                console.log(age);
+                $(".target").text(`${name} age is ${age} and team is ${team}`)
+            })
+
+            //each()
+            let arr=["EEIT29","iii","205","Gary"]
+            $.each(arr,function(index,ele){
+                // console.log(ele);
+            })
+            let sum=0;
+            $("td").each(function(){
+                sum+=Number($(this).text())
+            })
+            // console.log(sum);
+            let data=[
+                {
+                    "name":"Gary",
+                    "email":"garylee@iii.edu.org.tw",
+                    "phone":"0342573387"
+                },
+                {
+                    "name":"Dora",
+                    "email":"dora@iii.edu.org.tw",
+                    "phone":"0342573387"
+                },
+                {
+                    "name":"Jeny",
+                    "email":"jeny@iii.edu.org.tw",
+                    "phone":"0342573387"
+                }
+            ]
+            $.each(data,function(index,emp){
+                // console.log(emp);
+                // console.log(emp.name)
+            })
+
+            //inArray() 回傳索引值，沒有則回傳-1    //不常用
+            let arr1=[9,8,7,6,"5","4","3"]
+                // console.log($.inArray(7,arr1));
+                // console.log($.inArray(2,arr1));
+                // console.log($.inArray("5",arr1));
+
+            //.map()    //不常用
+            result=$.map(arr1,function(item,index){
+                console.log(item+","+index);
+                return item*index;
+            })
+            console.log(result);
+            //.grep() 根據設定的條件找到陣列符合的資料回傳    //不常用
+            result_grep=$.grep(arr1,function(item,index){
+                return(item%2==0);
+            })
+            console.log(result_grep);
+
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery Lab09</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <header>
+        <h1>on</h1>
+    </header>
+    <div id="container">
+        <button id="btn">button</button>
+        <hr>
+        <button id="btn1">button</button>
+        <button id="sayHello">Hello</button>
+        <button id="on">on</button>
+        <button id="off">off</button>
+        <button id="one">one</button>
+        <hr>
+        <button id="add">add</button>
+        <ul>
+            <li>item 1</li>
+        </ul>
+    </div>
+    <script src="/jquery-3.6.0.js"></script>
+    <script>
+        $(function () {
+            //多個事件綁一個函數
+            $("#btn").on("click mouseenter contextmenu dblclick",function(){
+                console.log("123");
+            })
+            $("#btn").click(function(){})
+
+            //多個事件綁多個函數
+            $("#btn1").on({
+                click:function(){
+                    console.log("click")
+                },dblclick:function(){
+                    console.log("double click")
+                },contextmenu:function(){
+                    console.log("right click")
+                }
+            })
+
+            let sayHello=function(){
+                console.log("hello")
+            }
+            $("#on").on("click",function(){
+                $("#sayHello").on("click",sayHello)
+            })
+            $("#off").on("click",function(){
+                $("#sayHello").off("click",sayHello)
+            })
+            $("#one").one("click",function(){
+                console.log("one")
+            })
+
+            let i=2;
+            $("#add").on("click",function(){
+                $("ul").append("<li>item "+i+"</li>")
+                    i++;
+            })
+
+            //on動態綁定
+            $("li").on("click",function(){
+                console.log("456")
+            })     
+            $("ul").on("click","li",function(){
+                console.log("123")
+            })
+
+        })
+    </script>
+</body>
+</html>

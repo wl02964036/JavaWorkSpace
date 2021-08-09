@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery Lab11</title>
+    <link rel="stylesheet" href="/style.css">
+    <style>
+        table {
+            border: 2px solid black;
+            width: 500px;
+            height: 100px;
+        }
+
+        tr td {
+            border: 1px solid black;
+        }
+
+        table tr.active {
+            background-color: lightskyblue;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>CheckAll</h1>
+    </header>
+    <div id="container">
+        <table>
+            <thead>
+                <tr>
+                    <th><input type="checkbox" id="checkAll"></th>
+                    <th>Name</th>
+                    <th>E-mail</th>
+                    <th>Phone</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><input type="checkbox"></td>
+                    <td>Gary</td>
+                    <td>garylee@iii.org.tw</td>
+                    <td>034257387</td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox"></td>
+                    <td>Gary</td>
+                    <td>garylee@iii.org.tw</td>
+                    <td>034257387</td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox"></td>
+                    <td>Gary</td>
+                    <td>garylee@iii.org.tw</td>
+                    <td>034257387</td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox"></td>
+                    <td>Gary</td>
+                    <td>garylee@iii.org.tw</td>
+                    <td>034257387</td>
+                </tr>
+
+
+
+
+
+            </tbody>
+        </table>
+    </div>
+    <script src="/jquery-3.6.0.js"></script>
+    <script>
+        $(function () {
+            let trCount=$("tbody tr").length;
+            // console.log(trCount);
+            $("tbody :checkbox").on("click",function(){     //講義p23-24
+                let checked=$(this).prop("checked")
+                if(checked){
+                    $(this).closest("tr").addClass("active");
+                }else{
+                    $(this).closest("tr").removeClass("active");
+                }
+                let checkedCount=$("tr.active").length;
+                if(trCount==checkedCount){
+                    $("#checkAll").prop("checked",true)
+                }else{
+                    $("#checkAll").prop("checked",false)
+                }
+            })
+
+            $("#checkAll").on("click",function(){
+                let checked=$(this).prop("checked")
+                if(checked){
+                    $("tbody :checkbox").prop("checked",true)
+                    .closest("tr").addClass("active")
+                }else{
+                    $("tbody :checkbox").prop("checked",false)
+                    .closest("tr").removeClass("active")
+                }
+            })
+
+        })
+    </script>
+</body>
+
+</html>
