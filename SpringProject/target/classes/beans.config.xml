@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd">
+
+	<context:annotation-config/>
+	<context:component-scan base-package="tw.leonchen"/>
+
+	<bean id="sqlserverDataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<property name="driverClassName" value="com.microsoft.sqlserver.jdbc.SQLServerDriver"/>
+		<property name="url" value="jdbc:sqlserver://localhost:1433;databaseName=LeonPowerCL"/>
+		<property name="username" value="sa"/>
+		<property name="password" value="eeit12907"></property>
+	</bean>
+
+
+	<bean id="props" class="org.springframework.beans.factory.config.PropertiesFactoryBean">
+		<property name="location">
+			<value>classpath:tree.properties</value>
+		</property>
+	</bean>
+
+	<bean id="worker1" class="tw.leonchen.model.Worker">
+		<property name="id" value="101"/>
+		<property name="name" value="allen"/>
+		<property name="title" value="engineer"/>
+	</bean>
+	
+	<bean id="worker2" class="tw.leonchen.model.Worker">
+		<property name="id" value="102"/>
+		<property name="name" value="john"/>
+		<property name="title" value="secretary"/>
+	</bean>
+
+	<!-- 
+		After that, we configure Spring:
+
+		1.Create a bean for our factory class (InstanceFooFactory)
+		2.Use the factory-bean attribute to reference our factory bean
+		3.Use the factory-method attribute to reference our factory method (createInstance)
+	 -->
+
+	<bean id="truckBeanFactory" class="tw.leonchen.model.TruckBeanFactory">
+		<property name="map">
+			<map>
+				<entry key="1">
+					<bean class="tw.leonchen.model.TruckBean">
+						<property name="id" value="3"/>
+						<property name="brand" value="BMW"/>
+					</bean>
+				</entry>
+				<entry key="2">
+					<bean class="tw.leonchen.model.TruckBean">
+						<property name="id" value="4"/>
+						<property name="brand" value="Mercedes-Benz"/>
+					</bean>
+				</entry>
+			</map>
+		</property>
+	</bean>
+	
+	<bean id="bmwTruck" factory-bean="truckBeanFactory" factory-method="getTruckBean">
+		<constructor-arg value="1"/>
+	</bean>
+	
+	<bean id="benzTruck" factory-bean="truckBeanFactory" factory-method="getTruckBean">
+		<constructor-arg value="2"/>
+	</bean>
+
+	<bean id="toyotaTruck" class="tw.leonchen.model.TruckBeanStaticFactory" factory-method="getTruckBean">
+		<constructor-arg value="1" />
+	</bean>
+
+	<bean id="nissanTruck" class="tw.leonchen.model.TruckBeanStaticFactory" factory-method="getTruckBean">
+		<constructor-arg value="2" />
+	</bean>
+
+	<!-- 作法一 -->
+	<bean id="bird1" class="tw.leonchen.model.Bird">
+		<property name="id" value="1001"></property>
+		<property name="name" value="blue bird"></property>
+		<property name="age" value="3"></property>
+	</bean>
+
+	<!-- 作法二 -->
+	<bean id="bird2" class="tw.leonchen.model.Bird" p:id="1002" p:name="eagle" p:age="5" />
+
+	<!-- LogProvider logProvider = new LogProvider(); -->
+	<bean id="logProvider" class="tw.leonchen.util.LogProvider" />
+
+	<!-- String string0 = new String("This is Sparta"); -->
+	<bean id="string0" name="string1, string2"
+		class="java.lang.String">
+		<constructor-arg value="This is Sparta" />
+	</bean>
+
+	<!-- LoginDao loginDao = new LoginDao() -->
+	<bean id="loginDao" class="tw.leonchen.model.LoginDao" />
+
+	<!-- LoginService loginService1 = new LoginService(loginDao); -->
+	<bean id="loginService1" class="tw.leonchen.model.LoginService">
+		<constructor-arg ref="loginDao" />
+	</bean>
+
+	<!-- LoginService loginService2 = new LoginService(); -->
+	<!-- loginService2.setLoginDao(loginDao); -->
+	<bean id="loginService2" class="tw.leonchen.model.LoginService">
+		<property name="loginDao" ref="loginDao" />
+	</bean>
+
+	<!-- 作法一 -->
+	<!-- Room room1 = new Room(101, "star", "blue") -->
+	<bean id="room1" class="tw.leonchen.model.Room" scope="singleton" init-method="init" destroy-method="destroy">
+		<constructor-arg value="101" />
+		<constructor-arg value="star" />
+		<constructor-arg value="blue" />
+	</bean>
+
+	<!-- 作法二 -->
+	<bean id="room2" class="tw.leonchen.model.Room">
+		<constructor-arg index="0" value="102" />
+		<constructor-arg index="1" value="sun" />
+		<constructor-arg index="2" value="yellow" />
+	</bean>
+
+</beans>
