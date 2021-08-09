@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>jQuery</title>
+<!-- 使用JQuery必須引用其函式庫-->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+<!-- 表示當整個網頁載入完成後執行-->
+<script type="text/javascript">
+	$(document).ready(function() {
+		
+// 		$("#result").html('ok');
+
+		$.get("jQueryPage01.jsp", function(data) {
+			$("#result").html(data);
+		});
+	});
+</script>
+</head>
+<body>
+<div id="result"></div>
+</body>
+</html>

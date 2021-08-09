@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>jQuery</title>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script type="text/javascript">
+	$(document).ready(function(){
+		
+		$.getJSON('json/profiles1.json', function(data){
+			
+			var resultText = '';
+			
+			for(var i=0;i<data.length;i++) {
+				resultText += data[i].name + " " + data[i].age + " " + data[i].address + "<br/>"
+			}
+			
+			$("#result").html(resultText);
+		});
+	});
+</script>
+</head>
+<body>
+<div id="result"></div>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Ajax</title>
+<script type="text/javascript">
+	var xh = new XMLHttpRequest();
+// 	xh.open('get', 'json/profiles1.json', true);
+	xh.open('get', 'houseConvertJson2.controller', true);
+	xh.send();
+
+	xh.onload = function() {
+		console.log(xh.responseText);
+		var data = JSON.parse(xh.responseText);
+
+		var textResult = '';
+		for (var i = 0; i < data.length; i++) {
+// 			textResult += data[i].name + " " + data[i].address + " "
+// 					+ data[i].age + "<br/>";
+			textResult += data[i].houseid + " " + data[i].housename + "<br/>";
+		}
+		console.log(textResult);
+		
+		document.getElementById('result').innerHTML = textResult;
+	}
+</script>
+</head>
+<body>
+Ajax Json Action !!
+<div id="result"></div>
+</body>
+</html>

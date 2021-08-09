@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>FormData</title>
+<script type="text/javascript">
+	window.onload = function(){
+		var form = document.getElementById('form1');
+		var send = document.getElementById('send');
+		
+		send.addEventListener('click',function(e){
+			e.preventDefault();		//擋住瀏覽器預設送出的行為
+			var formData = new FormData(form);
+			
+			var xh = new XMLHttpRequest();
+			xh.open('post', 'formDataprofiles.controller');
+			xh.send(formData);
+			
+			xh.onload = function(){
+				console.log(xh.status);
+				console.log(xh.responseText);
+			}
+
+		});
+	}
+</script>
+</head>
+<body>
+	<form id="form1">
+		<p>
+			Name:<input type="text" name="userName" placeholder="Please Input Your Name"><br>
+			Information:<br>
+			Info1:<input type="text" name="result1"><br> 
+			Info2:<input type="text" name="result1"><br>
+		</p>
+		<input type="submit" id="send" value="Send">
+	</form>
+</body>
+</html>

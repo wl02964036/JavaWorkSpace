@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Ajax</title>
+<script type="text/javascript">
+	var xh = new XMLHttpRequest();
+	xh.open('post', 'ajaxprofiles.controller', true);
+	xh.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+	xh.send('userName=andy&userAddress=taipei&userPhone=02-2456-9217');
+
+	xh.onload = function() {
+		console.log(xh.status);
+		console.log(xh.responseText);	//解析Text
+	};
+</script>
+</head>
+<body>ajax03 action!!
+</body>
+</html>

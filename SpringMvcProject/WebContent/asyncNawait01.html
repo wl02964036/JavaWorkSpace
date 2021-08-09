@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>AsyncNAwait</title>
+<script type="text/javascript">
+window.onload = function(){
+// 	async function play(){
+// 		var promise = new Promise(function(resolve, reject){
+// 			resolve('have a good time');
+// 		});
+	async function play(){
+		var promise = new Promise(function(resolve, reject){
+			setTimeout(function(){
+				resolve('nice to meet you.');
+			},3000);
+		});
+		
+		document.getElementById('result').innerHTML = await promise;
+	}
+	
+	play();
+}
+</script>
+</head>
+<body>
+<div id="result"></div>
+</body>
+</html>

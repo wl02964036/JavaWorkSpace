@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>jQuery</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script type="text/javascript">
+	$(document).ready(function() {
+		$("#send").click('jQueryPage01.jsp', function(){
+			$("#result").text($("form").serialize());
+		});
+	});
+</script>
+</head>
+<body>
+<form>
+	Name:<input type="text" name="userName"/><br/>
+	Address:<input type="text" name="userAddress"/><br/>
+</form>
+<button id="send">Send</button>
+<div id="result"></div>
+</body>
+</html>

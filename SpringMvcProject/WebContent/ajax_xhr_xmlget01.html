@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Ajax</title>
+<script type="text/javascript">
+	var xh = new XMLHttpRequest();
+	xh.open('get', 'game.xml', true);
+	xh.send();
+
+	xh.onload = function() {
+// 		console.log(xh.status);
+// 		console.log(xh.responseXML);	//解析XML	
+
+		var result = xh.responseXML.documentElement;
+		console.log(result);
+		
+		var tagLen = result.getElementsByTagName('role').length;
+// 		console.log(tagLen);
+		
+		var resultText = ' ';
+		for(var i=0;i<tagLen;i++){
+			var xSel = result.getElementsByTagName('role')[i];
+// 			console.log(xSel);
+			
+			for(var j=0;j<2;j++){
+				var nodeName = xSel.childNodes[j].nextElementSibling;		//取得標籤名字
+				var nodeContent = xSel.childNodes[j].nextElementSibling.textContent;		//取得標籤值
+// 				console.log(nodeName);
+// 				console.log(nodeContent);
+				resultText += nodeContent + ' ';
+			}
+			resultText += '<br/>';
+		}
+		console.log(resultText);
+		document.getElementById('result').innerHTML = resultText;
+	};
+</script>
+</head>
+<body>
+ajax xml action!!
+<div id="result"></div>
+</body>
+</html>

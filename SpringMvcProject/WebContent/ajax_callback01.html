@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>CallBack</title>
+<script type="text/javascript">
+	function sayHello(name){
+		alert('hola, ' + name);
+	}
+	
+	function processCallBackAction(actionName){
+		var yourName = prompt('Please Input Your Name:');
+		actionName(yourName);
+	}
+	
+	processCallBackAction(sayHello);
+</script>
+</head>
+<body>
+CallBack Function Action !!
+</body>
+</html>
