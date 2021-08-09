@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>星星評分</title>
+    <link rel="stylesheet" href="../mix.css">
+    <style>
+        .divB{
+            margin: 100px 600px;
+        }
+        #idDiv {
+            width: 700px;
+            background-color: rgb(197, 196, 196);
+        }
+
+        .str {
+            font-style: italic;
+        }
+    </style>
+</head>
+
+<body style="background-color: #2dc0d3;">
+    <div id="url">
+        <form action="../exam_1/exam_1.html">
+            <input type="submit" value="Homework1"></input>
+        </form>
+        <form action="../exam_2/exam_2.html">
+            <input type="submit" value="Homework2"></input>
+        </form>
+        <form action="../exam_3/exam_3.html">
+            <input type="submit" value="Homework3"></input>
+        </form>
+        <form action="../exam_4/exam_4.html">
+            <input type="submit" value="Homework4"></input>
+        </form>
+    </div>
+
+    <div class="divB">
+        <div id="idDiv">
+            <img src="images/star.gif" alt="">
+            <img src="images/star.gif" alt="">
+            <img src="images/star.gif" alt="">
+            <img src="images/star.gif" alt="">
+            <img src="images/star.gif" alt="">
+            <h3 class="str">點擊一次星星可以評分，點擊二次星星可以重製</h3>
+            <h3 id="idNote"></h3>
+        </div>
+    </div>
+
+    </div>
+    <script>
+        //製作一個星星評分
+        let tolDiv = document.getElementById("idDiv");
+        let note = document.getElementById("idNote");
+        let imgScore = ["評分為.....1", "評分為.....2", "評分為.....3", "評分為.....4", "評分為.....5"];
+        let tolStar = -1; //記錄當前第幾顆星星被點擊
+        let starArray = Array.from(tolDiv.children); //星星數組
+
+        //滑鼠移入
+        tolDiv.onmouseover = function () {
+            if (tolStar == -1) {
+                if (event.target.tagName === "IMG") {   //判斷event是否為圖片
+                    event.target.src = "images/chngstar.gif";   //把滑鼠移動到的星星替換成新圖片
+                    let prev = event.target.previousElementSibling; //把滑鼠移動到的星星之前的星星替換成新圖片
+                    while (prev) {
+                        prev.src = "images/chngstar.gif";
+                        prev = prev.previousElementSibling;
+                    }
+
+                    let next = event.target.nextElementSibling;     //把滑鼠移動到的星星之後的星星替換成原本圖片
+                    while (next) {
+                        next.src = "images/star.gif";
+                        next = next.nextElementSibling;
+                    }
+
+                    let imgIndex = starArray.indexOf(event.target); //找到滑鼠移動到的星星的序號
+                    note.innerHTML = imgScore[imgIndex]; //顯示對應的評論
+                }
+            }
+        }
+
+        //滑鼠點擊一次，鎖定星星
+        tolDiv.onclick = function () {
+            if (event.target.tagName === "IMG") {
+                tolStar = starArray.indexOf(event.target);     //記錄當前點擊的星星序號
+                note.innerHTML = `你給${tolStar + 1}顆星`;
+
+            }
+        }
+
+
+        // 滑鼠點擊二次，解除鎖定星星
+        tolDiv.ondblclick = function () {
+            if (event.target.tagName === "IMG") {
+                tolStar = -1;
+                note.innerHTML = "";
+
+            }
+        }
+        //滑鼠移出
+        tolDiv.onmouseout = function () {
+            if (tolStar !== -1) { //滑鼠點擊事件發生，將評分固定在點擊的星星上
+                for (let i = 0; i < tolDiv.children.length; i++) {
+                    if (i <= tolStar) {
+                        tolDiv.children[i].src = "images/chngstar.gif";
+
+                    } else {
+                        tolDiv.children[i].src = "images/star.gif";
+                    }
+                    // note.innerHTML = imgScore[tolStar]; //顯示對應的評論
+                }
+            } else {
+                for (let i = 0; i < tolDiv.children.length; i++) {
+                    tolDiv.children[i].src = "images/chngstar.gif";
+                }
+                note.innerHTML = ""; //不顯示評論
+            }
+        }
+    </script>
+</body>
+
+</html>

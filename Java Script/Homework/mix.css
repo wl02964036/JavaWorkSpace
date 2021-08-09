@@ -1,0 +1,31 @@
+#url {
+    margin-right: 120px;
+    padding-top: 100px;
+    border-radius: 20px;
+    float: left;
+    height:500px;
+    width:250px;
+    background-color:#99D3DF;
+}
+
+
+#url input {
+    height: 90px;
+    width: 100%;
+    border-radius: 20px;
+    font-size: 25px;
+    color:grey;
+    font-weight: bold;
+    background-color:#99D3DF;
+    border:0;
+}
+
+#url input:hover {
+    height: 90px;
+    width: 100%;
+    font-size: 30px;
+    color:rgb(253, 246, 246);
+    background-color:#88BBD6;
+    border:0;
+    font-weight: bold;
+}

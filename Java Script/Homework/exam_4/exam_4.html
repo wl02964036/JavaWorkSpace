@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>廣告輪播</title>
+    <link rel="stylesheet" href="../mix.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            text-decoration: none;
+        }
+
+        fieldset {
+            margin: 100px auto;
+            width: 1500px;
+            height: 1000px;
+            border: 3px solid #e44351;
+            border-radius: 20px;
+            background-color: #00ffaa;
+        }
+
+        legend {
+            color: #e44351;
+            text-align: center;
+            font-size: 3em;
+        }
+
+        #container {
+            margin: 50px auto;
+            width: 1300px;
+            /*此寬度根據圖片寬度調整*/
+            height: 800px;
+            /*此高度根據圖片高度調整*/
+            border-radius: 20px;
+            border: 3px solid #333;
+            overflow: hidden;
+            /*為了將圖片隱藏*/
+            position: relative;
+        }
+
+        #imgDiv {
+            width: 9100px;
+            /*圖片總寬度*/
+            height: 800px;
+            position: absolute;
+            z-index: 1;
+            /*list在最下層*/
+            left: 0px
+        }
+
+        #imgDiv img {
+            float: left;
+            width: 1300px;
+            height: 800px;
+        }
+
+        #butDiv {
+            position: absolute;
+            height: 20px;
+            width: 400px;
+            z-index: 2;
+            /*將buttons放在list上層*/
+            bottom: 20px;
+            right: 450px;
+        }
+
+        #butDiv span {
+            cursor: pointer;
+            /*改變鼠標*/
+            float: left;
+            border: 1px solid #fff;
+            border-radius: 20%;
+            height: 20px;
+            width: 20px;
+            margin: 15px;
+            background: #2c65e0;
+            text-align: center;
+            font-size: 20px;
+            color: white;
+            line-height: 20px;
+        }
+
+        #butDiv .on {
+            background-color: #474550;
+        }
+
+        .arrow {
+            display: none;
+            cursor: pointer;
+            /*改變鼠標*/
+            line-height: 40px;
+            text-align: center;
+            font-size: 30px;
+            /*設定箭頭的大小*/
+            width: 100px;
+            height: 40px;
+            position: absolute;
+            z-index: 2;
+            /*將arrow放在list上層*/
+            top: 400px;
+            color: white;
+            background-color: #474550;
+        }
+
+        .arrow:hover {
+            background-color: #E98352;
+        }
+
+        #container:hover .arrow {
+            display: block;
+        }
+
+        #prev {
+            left: 20px;
+        }
+
+        #next {
+            right: 20px;
+        }
+    </style>
+
+    <script>
+        window.onload = function () {
+            let list = document.getElementById("imgDiv");
+            let prev = document.getElementById("prev");
+            let next = document.getElementById("next");
+            let container = document.getElementById('container');
+
+            list.style.left = "0px";
+            let buttons = document.getElementById("butDiv").getElementsByTagName("span");
+            let index = 1;
+
+            function animate(offset) {
+                /*獲取的style.left，是相對左邊獲取距離，所以第一張圖後style.left都為負值*/
+                /*且style.left獲取的是字串，需要用parseInt()取整轉化為數字。*/
+                var newLeft = parseInt(list.style.left) + offset;
+                console.log(newLeft);
+                list.style.left = newLeft + "px";
+                console.log(list.style.left);
+                if (newLeft < -7800) {
+                    list.style.left = 0 + "px";
+                } else if (newLeft > 0) {
+                    list.style.left = -7800 + "px";
+                }
+            }
+
+            //切換到某一張圖片時，底部的按鈕樣式也跟著改變
+            function showButton() {
+                //清除之前button的樣式
+                for (let i = 0; i < buttons.length; i++) {
+                    if (buttons[i].className == "on") {
+                        buttons[i].className = "";
+                    }
+                }
+                //數組從0開始，所以index要減一
+                buttons[index - 1].className = "on";
+                console.log(index);
+            }
+
+            prev.onclick = function () {
+                index -= 1;
+                if (index < 1) {
+                    index = 7;
+                }
+                showButton();
+                animate(1300);
+            }
+            next.onclick = function () {
+                index +=1;
+                if (index > 7) {
+                    index = 1;
+                }
+                animate(-1300);
+                showButton();
+            }
+
+            //自動切換下一張圖片
+            let timer;//設定定時器
+            function autoplay() {
+                /*setInterval返回的是定時器的ID*/
+                timer = setInterval(function () {
+                    next.onclick()
+                }, 3000);
+            }
+
+            //當滑鼠移入圖片範圍時，清除定時器
+            function stopplay() {
+                clearInterval(timer);
+            }
+
+            //點選按鈕即會切換到相應位置的圖片
+            for (let i = 0; i < buttons.length; i++) {
+                buttons[i].onclick = function () {
+                    let clickIndex = parseInt(this.getAttribute('index'));
+                    let offset = 1300 * (index - clickIndex);   //這個index是當前圖片停留時的index
+                    animate(offset);
+                    index = clickIndex; //存放鼠標點擊後的位置，使button的正常顯示
+                    showButton();
+                }
+            }
+            container.onmouseover = stopplay;
+            container.onmouseout = autoplay;
+            autoplay();
+        }
+    </script>
+</head>
+
+<body style="background-color: #2dc0d3;">
+    <div id="url">
+        <form action="../exam_1/exam_1.html">
+            <input type="submit" value="Homework1"></input>
+        </form>
+        <form action="../exam_2/exam_2.html">
+            <input type="submit" value="Homework2"></input>
+        </form>
+        <form action="../exam_3/exam_3.html">
+            <input type="submit" value="Homework3"></input>
+        </form>
+        <form action="../exam_4/exam_4.html">
+            <input type="submit" value="Homework4"></input>
+        </form>
+    </div>
+
+    <fieldset>
+        <legend>冷門歌曲推薦</legend>
+        <div id="container">
+            <div id="imgDiv">
+                <a id="a1" href="https://www.youtube.com/watch?v=C3DlM19x4RQ&ab_channel=WhyDon%27tWe">
+                    <img src="images/8 letters.png" alt="1" />
+                </a>
+                <a id="a1" href="https://www.youtube.com/watch?v=Yq_Gm6iwzyE&ab_channel=AlexanderStewart">
+                    <img src="images/backwards.png" alt="2" />
+                </a>
+                <a id="a1" href="https://www.youtube.com/watch?v=Hl85F_iljHg&ab_channel=ElinaStridh-Topic">
+                    <img src="images/champion.png" alt="3" />
+                </a>
+                <a id="a1" href="https://www.youtube.com/watch?v=KTBfUOuv-YQ&ab_channel=Havelin-Topic">
+                    <img src="images/gentle.png" alt="4" />
+                </a>
+                <a id="a1" href="https://www.youtube.com/watch?v=QhyHBMlZBn8&ab_channel=AstridS">
+                    <img src="images/i dont know why.png" alt="5" />
+                </a>
+                <a id="a1" href="https://www.youtube.com/watch?v=C6U80HgXYPw&ab_channel=one28369">
+                    <img src="images/i wont let you down.png" alt="6" />
+                </a>
+                <a id="a1" href="https://www.youtube.com/watch?v=2sWzUEEOEgM&ab_channel=tovestyrkeVEVO">
+                    <img src="images/on the low.png" alt="7" />
+                </a>
+
+            </div>
+            <div id="butDiv">
+                <span index="1" class="on">1</span>
+                <span index="2">2</span>
+                <span index="3">3</span>
+                <span index="4">4</span>
+                <span index="5">5</span>
+                <span index="6">6</span>
+                <span index="7">7</span>
+            </div>
+            <a href="javascript:;" class="arrow" id="prev">Left</a>
+            <a href="javascript:;" class="arrow" id="next">Right</a>
+        </div>
+    </fieldset>
+
+</body>
+
+</html>
