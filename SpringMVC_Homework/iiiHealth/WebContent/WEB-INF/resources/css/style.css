@@ -1,0 +1,111 @@
+@import url(https://fonts.googleapis.com/earlyaccess/cwtexyen.css);
+
+.divItem {
+    width: 1000px;
+    /* border-bottom: 3px dashed #BEBEBE; */
+    margin: 20px auto;
+    padding-bottom: 10px;
+    font-size: 16pt;
+}
+
+.itemTitle{
+    width: 200px;
+    float: left;
+    text-align: right;
+    margin-right:5px ;
+}
+
+.sub{	
+    width: 450px;
+    margin: 20px auto;
+    text-align: center;
+}
+
+.btn{
+    font-family: "cwTeXYen", sans-serif;
+    font-size: 16pt;
+    margin:0 20px;
+}
+
+textarea {
+    resize: none; /*讓使用者無法自己拖拉表單範圍*/
+    font-family: "cwTeXYen", sans-serif;
+    font-size: 16pt;
+}
+
+input[type=text]{
+	width:350px;
+    font-family: "cwTeXYen", sans-serif;
+    font-size: 16pt;  
+}
+input[type=submit]{
+    font-family: "cwTeXYen", sans-serif;
+    font-size: 16pt;
+}
+
+select{
+    font-family: "cwTeXYen", sans-serif;
+    font-size: 16pt;
+}
+
+.tb{
+    font-family: "cwTeXYen", sans-serif;
+    font-size: 16pt;
+    width:auto;
+    border: 3px solid 	#FFED97;
+    border-collapse: collapse;
+    color:black;
+    margin: 10px auto;
+}
+thead{
+    font-family: "cwTeXYen", sans-serif;
+    font-size: 16pt;
+    background-color: peachpuff;
+    color:rgb(41, 40, 40);
+    text-transform: capitalize;
+    color:black;
+}
+tbody{
+	width:auto;
+    font-family: "cwTeXYen", sans-serif;
+    font-size: 16pt;
+    color:black;
+    background-color:	#FFED97;
+    text-align:center;
+}
+
+td, th{ 
+    width:auto;
+    font-family: "cwTeXYen", sans-serif;
+    font-size: 16pt;
+    border:1px solid gray;
+}
+
+.tb tbody tr:hover{
+	background-color:#D2E9FF;
+	color:#4B0091;
+}
+.btn:hover{
+	background-color:#00A600;
+	color:#D9FFFF;
+}
+
+.divdiv{	
+    width: 450px;  
+    margin: 10px 210px;
+    text-align: left;
+}
+
+.divdiv2{	
+    width: 473px;    
+    margin: 10px 210px;
+    text-align: left;
+}
+.row{
+	
+	display:table-row;
+	
+}
+.cell{
+	display:table-cell;
+}

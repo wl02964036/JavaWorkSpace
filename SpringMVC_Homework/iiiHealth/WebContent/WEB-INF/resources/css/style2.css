@@ -1,0 +1,181 @@
+@import url(https://fonts.googleapis.com/earlyaccess/cwtexyen.css);
+
+/*共同樣式*/
+
+body {
+    font-size: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: lightcyan;
+    line-height: 1.5em;
+    
+}
+
+header {
+    background: lightskyblue;
+    color:black;
+    padding: 20px;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.container{
+    width: 90%;
+    margin:0 0 0 450px;
+    padding:10px;
+    text-align: left;
+}
+
+.container2{
+    width: 90%;
+    margin:0 0 0 200px;
+    padding:10px;
+    text-align: left;
+}
+
+.container3{
+    width: 90%;
+    margin:0 0 0 300px;
+    padding:10px;
+    text-align: left;
+}
+
+.title{
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 30px 50px;
+    
+    }
+
+.title:hover{
+    color: chartreuse;
+}
+
+h2{
+    color: rgb(0, 0, 0);
+    margin: 20px 50px;
+}
+
+h3{
+	margin : 0 0 0 100px;
+}
+
+.h3n{
+	margin : 0;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.btn{
+	margin:80px 50px
+	
+    
+}
+
+.btnlo{
+	height: 500px;
+	width: 50px;
+	float:left
+}
+
+.btnlo2{
+	height: 500px;
+	width: 5px;
+	float:left
+}
+
+
+
+
+
+/*Hw2 樣式*/
+.form {
+    width: 450px;
+    border-bottom: 3px dashed rgb(206, 201, 201);
+    margin: 20px ;
+    padding-bottom: 12px;
+    
+
+
+}
+
+.sub {
+    width: 450px;
+    margin: 20px;
+    text-align: center;
+}
+
+.formt1 {
+    width: 100px;
+    float: left;
+    text-align: right;
+}
+
+.p1 {
+    font-size: 10px;
+    color: grey;
+    clear: both;
+    margin: 10px 0 0 50px;
+}
+
+
+fieldset {
+	padding :10px;
+    width: 400px;
+    border: 5px double limegreen;
+    border-radius: 10px;
+    margin: 0;
+}
+
+.fs {
+	padding :10px;
+    width: 1100px;
+    border: 5px double limegreen;
+    border-radius: 10px;
+    margin: 0;
+}
+
+.fs2 {
+	padding :10px;
+    width: 800px;
+    border: 5px double limegreen;
+    border-radius: 10px;
+    margin: 0;
+}
+
+legend {
+    color: rgb(37, 35, 35);
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: x-large;
+    margin-left: 25px;
+
+
+
+}
+
+
+input{
+    height: 25px;
+    font-size: 20px;
+}
+
+textarea{
+    font-size: 20px;
+}
+
+tr td{
+	width: auto;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16pt;
+    border:1px solid gray;
+    color:black;
+}
+
+
+
+
+
+
+
+
